@@ -77,15 +77,8 @@ Project: 3 Musketeers
 | Priority    | |
 | Status      | Not started |
 
-| ID          | 19 |
-| ----------- | ----- |
-| Title       | Display rating |
-| Description | Users will see the median star rating for a comic series. |
-| Estimate    | 0 days |
-| Priority    | |
-| Status      | Not started |
 
-| ID          | 20 |
+| ID          | 19 |
 | ----------- | ----- |
 | Title       | Search comic |
 | Description | A fan will be able to search for a comic issue or series by its title or creator as well as highest number of likes or highest median score in order to select the perfect comic.  Multiple entries matching the fan's criteria should be sorted for browsing. |
@@ -93,7 +86,7 @@ Project: 3 Musketeers
 | Priority    | |
 | Status      | Not started |
 
-| ID          | 21 |
+| ID          | 20 |
 | ----------- | ----- |
 | Title       | Search review |
 | Description | A fan will be able to search for a review by the reviewing critic, comic title, or review with the highest number of likes in order to select the most suitable review.  Multiple entries matching the fan's criteria should be sorted for browsing. |
@@ -101,7 +94,7 @@ Project: 3 Musketeers
 | Priority    | |
 | Status      | Not started |
 
-| ID          | 22 |
+| ID          | 21 |
 | ----------- | ----- |
 | Title       | Read/view a comic |
 | Description | Users can easily read a comic issue where each page is displayed prominantly as the user navigates using actions supported by a simple and intuitive interface designed to simulate the hands-on experience of reading a traditionally printed comic. |
@@ -109,7 +102,7 @@ Project: 3 Musketeers
 | Priority    | |
 | Status      | Not started |
 
-| ID          | 23 |
+| ID          | 22 |
 | ----------- | ----- |
 | Title       | Recognize style |
 | Description | Users will associate the aesthetic style with comic culture through design choices that impose a sense of entertainment and artistic expression in order to represent the content consisting of different genres and types of comics. |
