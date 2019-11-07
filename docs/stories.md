@@ -66,7 +66,6 @@ Project: 3 Musketeers
 | Description | As a general user, I want to register for the site, so that I can be a part of the site’s community  |
 | Estimate    | 1 day (6-8 hours) |
 | Priority    | 60 |
-
 | Status      | Not Started |
 
 | ID          | 18 |
