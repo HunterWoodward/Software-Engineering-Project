@@ -68,7 +68,7 @@ Project: 3 Musketeers
 | Priority    | 60 |
 | Status      | Not Started |
 
-| ID          | 18 |
+| ID          | 17 |
 | ----------- | ----- |
 | Title       | Display rating |
 | Description | Users will see the median star rating for a comic issue. |
@@ -77,7 +77,7 @@ Project: 3 Musketeers
 | Status      | Not started |
 
 
-| ID          | 19 |
+| ID          | 18 |
 | ----------- | ----- |
 | Title       | Search comic |
 | Description | A fan will be able to search for a comic issue or series by its title or creator as well as highest number of likes or highest median score in order to select the perfect comic.  Multiple entries matching the fan's criteria should be sorted for browsing. |
@@ -85,7 +85,7 @@ Project: 3 Musketeers
 | Priority    | |
 | Status      | Not started |
 
-| ID          | 20 |
+| ID          | 19 |
 | ----------- | ----- |
 | Title       | Search review |
 | Description | A fan will be able to search for a review by the reviewing critic, comic title, or review with the highest number of likes in order to select the most suitable review.  Multiple entries matching the fan's criteria should be sorted for browsing. |
@@ -93,15 +93,7 @@ Project: 3 Musketeers
 | Priority    | |
 | Status      | Not started |
 
-| ID          | 21 |
-| ----------- | ----- |
-| Title       | Read/view a comic |
-| Description | Users can easily read a comic issue where each page is displayed prominantly as the user navigates using actions supported by a simple and intuitive interface designed to simulate the hands-on experience of reading a traditionally printed comic. |
-| Estimate    | 3 days |
-| Priority    | |
-| Status      | Not started |
-
-| ID          | 22 |
+| ID          | 20 |
 | ----------- | ----- |
 | Title       | Recognize style |
 | Description | Users will associate the aesthetic style with comic culture through design choices that impose a sense of entertainment and artistic expression in order to represent the content consisting of different genres and types of comics. |
@@ -125,14 +117,6 @@ Project: 3 Musketeers
 | Description | As a critic I want to write a recommendation for a comic so readers can know if i think the comic is worth reading|
 | Estimate    | 2 Days(16 Hours) |
 | Priority    |  |
-| Status      | Not Started |
-
-|ID           | 17
-|-------------|---------------|
-| Title       | Create Review |
-| Description | As a critic, I want to create a review (in a separate section), so that I can share an experience, or reward a creator for good performance, or give advice  |
-| Estimate    | 1 day (around 6-8 hours) |
-| Priority    | 60 |
 | Status      | Not Started |
 
 
