@@ -4,117 +4,117 @@ Project: 3 Musketeers
 
 ## General Actions
 
-| ID          | 1 |
+| ID          | US1 |
 | ----------- | ----- |
 | Title       | Read a Comic |
 | Description | As a general user, I want to read a comic, so that I can enjoy my comic at anytime|
 | Estimate    | 2 Days(16 Hours) |
-| Priority    |  |
+| Priority    | 10 |
 | Status      | Not Started |
 
-| ID          | 3 |
+| ID          | US3 |
 | ----------- | ----- |
 | Title       | Discuss a Comic|
 | Description | As a general user, I want to be able to discuss about the comic, so that I can enjoy a comic with others|
 | Estimate    | 2 Days(16 Hours) |
-| Priority    |  |
+| Priority    | 30 |
 | Status      | Not Started |
 
-| ID          | 6 |
+| ID          | US6 |
 | ----------- | ----- |
 | Title       | Read a review |
 | Description | As a general user, I want to read a review for a comic so I can see what critics thought of it |
 | Estimate    | 2 Days(16 Hours) |
-| Priority    |  |
+| Priority    | 20 |
 | Status      | Not Started |
 
-| ID          | 7 |
+| ID          | US7 |
 | ----------- | ----- |
 | Title       | Follow a creator |
 | Description | As a general user, I want to follow a creator so that I know when they publish new comics |
 | Estimate    | 3 Days(24 Hours) |
-| Priority    |  |
+| Priority    | 40 |
 | Status      | Not Started |
 
-| ID          | 8 |
+| ID          | US8 |
 | ----------- | ----- |
 | Title       | Follow a critic |
 | Description | As a general user, I want to follow a critic so that i know when they make reviews or recommendations |
 | Estimate    | 3 Days(24 Hours) |
-| Priority    |  |
+| Priority    | 40 |
 | Status      | Not Started |
 
-| ID          | 9 |
+| ID          | US9 |
 | ----------- | ----- |
 | Title       | Follow a comic |
 | Description | As a general user, I want to follow a comic so that I know when new issues/chapter are added. |
-| Estimate    | 32 Days(24 Hours) |
-| Priority    |  |
+| Estimate    | 3 Days(24 Hours) |
+| Priority    | 40 |
 | Status      | Not Started |
 
-| ID          | 10 |
+| ID          | US10 |
 | ----------- | ----- |
 | Title       | Get a notification from follows|
 | Description | As a general user, I want to get a notification so I know when my follows make a new post |
 | Estimate    | 4 Days(32 Hours) |
-| Priority    |  |
+| Priority    | 40 |
 | Status      | Not Started |
 
-|ID           | 11
+|ID           | US11
 |-------------|---------------|
 | Title       | Register User |
 | Description | As a general user, I want to register for the site, so that I can be a part of the site’s community  |
 | Estimate    | 1 day (6-8 hours) |
-| Priority    | 60 |
+| Priority    | 10 |
 | Status      | Not Started |
 
-| ID          | 17 |
+| ID          | US15 |
 | ----------- | ----- |
 | Title       | Display rating |
-| Description | Users will see the median star rating for a comic issue. |
-| Estimate    | 0 days |
-| Priority    | |
+| Description | As a user I want to see the median star rating for a comic issue, so I can know how others liked it. |
+| Estimate    | 1 days(6-8 hours) |
+| Priority    | 50 |
 | Status      | Not started |
 
 
-| ID          | 18 |
+| ID          | US16 |
 | ----------- | ----- |
 | Title       | Search comic |
-| Description | A fan will be able to search for a comic issue or series by its title or creator as well as highest number of likes or highest median score in order to select the perfect comic.  Multiple entries matching the fan's criteria should be sorted for browsing. |
+| Description | As a user I want to be able to search for a comic issue or series by its title or creator as well as highest number of likes or highest median score so that I can select the perfect comic.|
 | Estimate    | 1 day |
-| Priority    | |
+| Priority    | 50 |
 | Status      | Not started |
 
-| ID          | 19 |
+| ID          | US17 |
 | ----------- | ----- |
 | Title       | Search review |
-| Description | A fan will be able to search for a review by the reviewing critic, comic title, or review with the highest number of likes in order to select the most suitable review.  Multiple entries matching the fan's criteria should be sorted for browsing. |
+| Description | As a user I want to be able to search for a review by the reviewing critic, comic title, or review with the highest number of likes so that I can select the most suitable review. |
 | Estimate    | 1 day |
-| Priority    | |
+| Priority    | 50 |
 | Status      | Not started |
 
-| ID          | 20 |
+| ID          | US18 |
 | ----------- | ----- |
 | Title       | Recognize style |
-| Description | Users will associate the aesthetic style with comic culture through design choices that impose a sense of entertainment and artistic expression in order to represent the content consisting of different genres and types of comics. |
+| Description | As a User I wan to associate the aesthetic style with comic culture through design choices that impose a sense of entertainment and artistic expression in order to represent the content consisting of different genres and types of comics. |
 | Estimate    | 5 days |
 | Priority    | |
 | Status      | Not started |
 
 ## Critic Actions
 
-| ID          | 2 |
+| ID          | US2 |
 | ----------- | ----- |
 | Title       | Leave a Review on a Comic|
 | Description | As a Critic, I want to leave a review on a comic so that I can judge the quality of the comic|
 | Estimate    | 2 Days(16 Hours) |
-| Priority    |  |
+| Priority    | 20 |
 | Status      | Not Started |
 
-| ID          | 5 |
+| ID          | US5 |
 | ----------- | ----- |
 | Title       | Write a recommendation |
-| Description | As a critic I want to write a recommendation for a comic so readers can know if i think the comic is worth reading|
+| Description | As a critic I want to add a comic to a list of recommendations so that my followeres know what comics I reccomend |
 | Estimate    | 2 Days(16 Hours) |
 | Priority    |  |
 | Status      | Not Started |
@@ -122,53 +122,37 @@ Project: 3 Musketeers
 
 ## Creator Actions
 
-| ID          | 4 |
+| ID          | US4 |
 | ----------- | ----- |
 | Title       | Publish a comic |
 | Description | As a creator I want to publish my comic book so that people can read it|
 | Estimate    | 2 Days(16 Hours) |
-| Priority    |  |
+| Priority    | 30 |
 | Status      | Not Started |
 
-|ID           | 13
+|ID           | US13
 |-------------|---------------|
 | Title       | Create Comic |
-| Description | As a creator, I want to create a comic book, so that I can provide my fans entertainment  |
+| Description | As a creator, I want to create a comic book either as part of a series or as a oneshot, so that I can provide my fans entertainment  |
 | Estimate    | 1 day (6-8 hours of work) |
-| Priority    | 60 |
+| Priority    | 30 |
 | Status      | Not Started |
 
-|ID           | 14
+|ID           | US14
 |-------------|---------------|
 | Title       | Create Comic Book Series |
-| Description | As a creator, I want to create a comic book series, so that I can provide my fans entertainment  |
+| Description | As a creator, I want to create a comic book serie by adding, removing, ordering pages, specifying a front cover, and giving a Issue Number so that I can provide my fans entertainment  |
 | Estimate    | 1 day (6-8 hours of work) |
-| Priority    | 60 |
-| Status      | Not Started |
-
-|ID           | 15
-|-------------|---------------|
-| Title       | Specify Front Cover |
-| Description | As a creator, I want to specify the front cover, so that it is always on top |
-| Estimate    | 1 day (around 6-8 hours) |
-| Priority    | 60 |
-| Status      | Not Started |
-
-|ID           | 16
-|-------------|---------------|
-| Title       | Specify Unique Issue Number |
-| Description | As a creator, I want to specify a unique issue number for each comic of a series, so that they are distinct |
-| Estimate    | 1 day (around 6-8 hours) |
 | Priority    | 60 |
 | Status      | Not Started |
 
 
 ## Admin Actions
 
-|ID           | 12
+|ID           | US12
 |-------------|---------------|
 | Title       | Register Creator, Critic, and Other Admin |
 | Description | As an admin, I want to administratively register creators, critics, and other admins, so that they have separate privileges and access |
 | Estimate    | 2 days (around 16 hours) |
-| Priority    | 80 |
+| Priority    | 60 |
 | Status      | Not Started |
