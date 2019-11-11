@@ -60,7 +60,7 @@ Project: 3 Musketeers
 | Priority    | 40 |
 | Status      | Not Started |
 
-|ID           | US11
+|ID           | US11 |
 |-------------|---------------|
 | Title       | Register User |
 | Description | As a general user, I want to register for the site, so that I can be a part of the site’s community. |
@@ -98,7 +98,7 @@ Project: 3 Musketeers
 
 | ID          | US2 |
 | ----------- | ----- |
-| Title       | Leave a Review on a Comic|
+| Title       | Leave a Review on a Comic |
 | Description | As a Critic, I want to leave a review on a comic so that I can judge the quality of the comic. |
 | Estimate    | 2 Days(16 Hours) |
 | Priority    | 20 |
@@ -123,7 +123,7 @@ Project: 3 Musketeers
 | Priority    | 30 |
 | Status      | Not Started |
 
-|ID           | US13
+|ID           | US13 |
 |-------------|---------------|
 | Title       | Create Comic |
 | Description | As a creator, I want to create a comic book either as part of a series or as a oneshot, so that I can provide my fans entertainment. |
