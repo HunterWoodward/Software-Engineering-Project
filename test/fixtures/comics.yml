@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: 
+  issue_number: 
+  description: 
+  type: 
+
+two:
+  title: 
+  issue_number: 
+  description: 
+  type: 
