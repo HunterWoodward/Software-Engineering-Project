@@ -1,0 +1,15 @@
+<style>
+.image{
+    display: block;
+    border: 3px solid black;
+    margin: auto;
+}
+</style>
+
+<p><%=page.page_number%></p>
+
+<% if page.image.attached? %>
+    <div>
+    <image src="<%=(url_for(page.image))%>" class="image">
+    </div>
+<% end %>
