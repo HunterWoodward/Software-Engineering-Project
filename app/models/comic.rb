@@ -25,4 +25,8 @@ class Comic < ApplicationRecord
             errors.add(:cover, 'Is Required')
         end
     end
+
+    def count_pages
+        pages.count
+    end
 end
