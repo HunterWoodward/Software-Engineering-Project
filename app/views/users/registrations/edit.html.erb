@@ -26,11 +26,17 @@
   </div>
  <%if @user.avatar.attached?%>
   <%= image_tag url_for((@user.avatar)), height: 300%>   
+  <%else%>
+  <%=image_tag "placeholder.jpg",height: 300%>
  <%end%>
     <div class="field">
-    <%= f.label :bio %><br />
+    <%= f.label "about" %><br />
     <%= f.text_area :bio, autofocus: true %>
     </div>
+<div class="field">
+   <%= f.label :role %><br />
+   <%= f.select :role, options_for_select(role_options),{ include_blank: "Select role"}%>
+ </div>
 
   <div class="field">
     <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />

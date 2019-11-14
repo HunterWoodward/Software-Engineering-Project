@@ -42,6 +42,7 @@ class UsersController < ApplicationController
       def user_params
         params.require(:user).permit(:role, :first_name,:last_name)
       end
+
   @user.avatar.attach(io: File.open('app/assets/images/placefolder.png'),
             filename: 'placeholder.png',content_type: 'image/png')
 end
