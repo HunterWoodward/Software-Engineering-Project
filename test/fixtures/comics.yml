@@ -1,0 +1,27 @@
+# == Schema Information
+#
+# Table name: comics
+#
+#  id           :integer          not null, primary key
+#  title        :string
+#  issue_number :integer
+#  description  :text
+#  comic_type   :string
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: One Piece Chapter 36
+  issue_number: 36
+  description: Luffy and the gang go on another adventure.
+  comic_type: issue
+
+
+two:
+  title: The Lost Ark
+  issue_number: #blank
+  description: The story of the Lost Ark
+  comic_type: oneshot
