@@ -10,7 +10,7 @@ Project: 3 Musketeers
 | Description | As a general user, I want to read a comic, so that I can enjoy my comic at anytime. |
 | Estimate    | 2 Days(16 Hours) |
 | Priority    | 10 |
-| Status      | Not Started |
+| Status      | Completed |
 
 | ID          | US3 |
 | ----------- | ----- |
