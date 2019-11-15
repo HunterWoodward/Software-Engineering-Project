@@ -1,0 +1,53 @@
+<style>
+.image{
+    display: block;
+    border: 3px solid black;
+    margin : auto;
+}
+
+.page{
+    text-align: center;
+}
+
+.button{
+    display:block;
+    margin: auto;
+}
+
+.column-image {
+  float: left;
+  width: 60%;
+  height: auto;
+  padding: 20px;
+
+}
+.column-sides {
+  float: left;
+  width: 20%;
+  padding: 20px;
+}
+</style>
+
+<div class = "column-sides">
+    <% if page.page_number > 1%>
+        <button class = "button"><%=  link_to 'Prev', page_path(page: page.page_number-1)%></button>
+    <%end%>
+</div>
+
+<div class = "column-image">
+    <div style = "text-align:center">
+        <button class = "button"><%= link_to 'Comic Page', comic_path(id: comic.id) %></button>
+        <p class= "page"><%=page.page_number%></p>
+        <% if page.image.attached? %>
+            <div>
+            <image src="<%=(url_for(page.image))%>" class="image">
+            </div>
+        <% end %>
+    </div>
+</div>
+
+<div class = "column-sides">
+    <% if page.page_number < comic.count_pages%>
+        <button class = "button"><%=  link_to 'Next', page_path(page: page.page_number+1)%></button>
+    <%end%>
+</div>

@@ -10,7 +10,7 @@ Project: 3 Musketeers
 | Description | As a general user, I want to read a comic, so that I can enjoy my comic at anytime. |
 | Estimate    | 2 Days(16 Hours) |
 | Priority    | 10 |
-| Status      | Not Started |
+| Status      | Completed |
 
 | ID          | US3 |
 | ----------- | ----- |
@@ -114,14 +114,6 @@ Project: 3 Musketeers
 
 
 ## Creator Actions
-
-| ID          | US4 |
-| ----------- | ----- |
-| Title       | Publish a comic |
-| Description | As a creator I want to publish my comic book so that people can read it. |
-| Estimate    | 2 Days(16 Hours) |
-| Priority    | 30 |
-| Status      | Not Started |
 
 |ID           | US13 |
 |-------------|---------------|
