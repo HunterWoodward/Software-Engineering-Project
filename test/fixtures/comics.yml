@@ -9,6 +9,11 @@
 #  comic_type   :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  series_id    :integer
+#
+# Indexes
+#
+#  index_comics_on_series_id  (series_id)
 #
 
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
@@ -18,6 +23,7 @@ one:
   issue_number: 36
   description: Luffy and the gang go on another adventure.
   comic_type: issue
+  series_id: 36
 
 
 two:

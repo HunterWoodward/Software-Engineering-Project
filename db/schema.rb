@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_13_030444) do
+ActiveRecord::Schema.define(version: 2019_11_14_203504) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 2019_11_13_030444) do
     t.string "comic_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "series_id"
+    t.index ["series_id"], name: "index_comics_on_series_id"
   end
 
   create_table "pages", force: :cascade do |t|
@@ -53,6 +55,14 @@ ActiveRecord::Schema.define(version: 2019_11_13_030444) do
     t.index ["comic_id"], name: "index_pages_on_comic_id"
   end
 
+  create_table "series", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "comics", "series"
   add_foreign_key "pages", "comics"
 end

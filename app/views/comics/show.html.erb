@@ -1,58 +1,51 @@
 <head>
+<link rel='stylesheet' href='comics.scss'>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <style>
-* {
-  box-sizing: border-box;
-}
-
-.column {
-  float: middle;
-  width: 33%;
-  height: 1000px;
-  padding: 10px;
-  margin: 1px;
-  border-style: groove;
-}
-
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.content {
-    text-align: center;
-}
 </style>
 </head>
 
-<div class = "row">
-    <div class = "column">
-        <div class = "content">
-            <h1 style>
-                <%= comic.title %>
-            </h1>
-            <% if comic.cover.attached? %>
-                <div>
-                    <image src="<%=(url_for(comic.cover))%>" style = "border: 3px solid black">
+
+<div class="row">
+    <div class="col-md-4">
+        <div style="text-align:center">
+            <div class="text-white bg-dark m-2 shadow-lg border rounded">
+                <h1><u>
+                    <%= comic.title %>
+                </u></h1>
+                <% if comic.cover.attached? %>
+                <image src="<%=(url_for(comic.cover))%>" class="m-3 img-thumbnail"style="max-width:60%;height:auto">
+                <% end %>
                 </div>
-            <% end %>
-                <h2>Comic Info</h2>
-                <p>Stars:</p>
-                <p>Likes:</p>
-                <p><h3>Summary:</h3><%= comic.description %></p>
+                <h2 class = "text-white bg-dark m-2 p-1 shadow-lg border rounded">Comic Info</h2>
+            <div class='text-white bg-dark m-2 shadow-lg border rounded' style="height:auto">
+                <ul class="list-inline m-2">
+                <li class="list-inline-item ">Rating: </li>
+                <li class="list-inline-item ">Likes: </li>
+                </ul>
+                <div>
+                    <p class="m-1"><h1>Summary:</h1><h3><%= comic.description %></h3></p>
+                </div>
+            </div>
         </div>
     </div>
-
-    <div class = "column">
-        <div class = "content">
-            <h2>Reviews</h2>
+    
+    <div class="col-md-4">
+        <div class="text-white bg-dark m-2 shadow-lg border rounded">
+            <h2 style="text-align:center">Reviews</h2>
         </div>
+            <div class = 'text-white bg-dark m-2 shadow-lg border rounded'style="padding-bottom:100%;margin-bottom:100%">
+            </div>
     </div>
 
-    <div class = "column">
-        <div class = "content">
-            <button class = "button"><%= link_to 'Read', page_path(page: 1)%></button>
-            <h2>Disscusion</h2>
+
+    <div class="col-md-4">
+        <div style="text-align:center">
+            <%= link_to 'Read', page_path(page: 1),class:"w-75 m-2 btn btn-dark btn-lg border"%>
+            <h2 class="text-white bg-dark m-2 p-2 shadow-lg border rounded">Disscusion</h2>
+            <div class="text-white bg-dark m-2 shadow-lg border rounded"style="padding-bottom:100%;margin-bottom:100%">
+
+            </div>
         </div>
     </div>
 </div>

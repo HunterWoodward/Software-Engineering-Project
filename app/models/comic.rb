@@ -9,9 +9,15 @@
 #  comic_type   :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  series_id    :integer
+#
+# Indexes
+#
+#  index_comics_on_series_id  (series_id)
 #
 
 class Comic < ApplicationRecord
+    belongs_to :series, optional: true
     has_many :pages, dependent: :destroy
     validates :title, :description, :comic_type, presence:true
     validates :title, uniqueness: true
