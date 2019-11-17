@@ -1,2 +1,73 @@
-<h1>Series#show</h1>
-<p>Find me in app/views/series/show.html.erb</p>
+<head>
+<link rel='stylesheet' href='comics.scss'>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+</style>
+</head>
+
+
+<div class="row">
+    <div class="col-md-4">
+        <div style="text-align:center">
+            <div class="text-white bg-dark m-2 shadow-lg border rounded">
+                <h1><u>
+                    <%= series.title %>
+                </u></h1>
+                <% if series.cover.attached? %>
+                <image src="<%=(url_for(series.cover))%>" class="m-3 img-thumbnail"style="max-width:60%;height:auto">
+                <% end %>
+                </div>
+                <h2 class = "text-white bg-dark m-2 p-1 shadow-lg border rounded">Comic Info</h2>
+            <div class='text-white bg-dark m-2 shadow-lg border rounded' style="height:auto">
+                <ul class="list-inline m-2">
+                <li class="list-inline-item ">Rating: </li>
+                <li class="list-inline-item ">Likes: </li>
+                </ul>
+                <div>
+                    <p class="m-1"><h1>Summary:</h1><h3><%= series.description %></h3></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="text-white bg-dark m-2 shadow-lg border rounded">
+            <h2 style="text-align:center">Reviews</h2>
+        </div>
+            <div class = 'text-white bg-dark m-2 shadow-lg border rounded'style="padding-bottom:100%;margin-bottom:100%">
+            </div>
+    </div>
+
+
+    <div class="col-md-4">
+        <div class="text-white bg-dark m-2 p-2 shadow-lg border rounded">
+        <h2 class="text-center">Issues</h2>
+            <table class="table table-bordered table-striped bg-light ">
+                <thead>
+                    <tr>
+                        <th scope="col">Title of Comic</th>
+                        <th scope="col">Issue Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% comics.each do |c| %>
+                        <tr>
+                            <th scope="row"><%= link_to c.title, comic_path(id: c.id) %></th>
+                            <td><%=c.issue_number%></td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+        <div style="text-align:center">
+            <h2 class="text-white bg-dark m-2 p-2 shadow-lg border rounded">Disscusion</h2>
+            <div class="text-white bg-dark m-2 shadow-lg border rounded"style="padding-bottom:100%;margin-bottom:100%">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

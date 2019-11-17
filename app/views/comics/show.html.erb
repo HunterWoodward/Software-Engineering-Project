@@ -41,6 +41,9 @@
 
     <div class="col-md-4">
         <div style="text-align:center">
+            <% if (comic.comic_type == "series") %>
+              <%= link_to 'Series Page', series_path(id: comic.series_id),class:"w-75 m-2 btn btn-dark btn-lg border"%>
+            <% end %>
             <%= link_to 'Read', page_path(page: 1),class:"w-75 m-2 btn btn-dark btn-lg border"%>
             <h2 class="text-white bg-dark m-2 p-2 shadow-lg border rounded">Disscusion</h2>
             <div class="text-white bg-dark m-2 shadow-lg border rounded"style="padding-bottom:100%;margin-bottom:100%">

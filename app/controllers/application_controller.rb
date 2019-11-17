@@ -14,6 +14,4 @@ class ApplicationController < ActionController::Base
       user_params.permit(:email, :password, :first_name,:last_name,:bio,:avatar,:role, :current_password)
     end
   end
-  @user.avatar.attach(io: File.open('app/assets/images/placefolder.png'),
-            filename: 'placeholder.png',content_type: 'image/png')
 end
