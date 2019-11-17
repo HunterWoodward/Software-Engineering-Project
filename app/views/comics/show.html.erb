@@ -11,7 +11,7 @@
         <div style="text-align:center">
             <div class="text-white bg-dark m-2 shadow-lg border rounded">
                 <h1><u>
-                    <%= comic.title %>
+                    <%= comic.title.capitalize %>
                 </u></h1>
                 <% if comic.cover.attached? %>
                 <image src="<%=(url_for(comic.cover))%>" class="m-3 img-thumbnail"style="max-width:60%;height:auto">

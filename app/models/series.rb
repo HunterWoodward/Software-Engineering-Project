@@ -15,6 +15,7 @@ class Series < ApplicationRecord
     validates :title, uniqueness: true
     validate :has_cover_image
     has_one_attached :cover
+    before_save :downcase_fields
 
     def has_cover_image
         if cover.attached? && !cover.content_type.in?(%w(image/jpeg image/png))
@@ -22,6 +23,10 @@ class Series < ApplicationRecord
         elsif cover.attached? == false
             errors.add(:cover, 'Is Required')
         end
+    end
+
+    def downcase_fields
+        title.downcase!
     end
     
 end

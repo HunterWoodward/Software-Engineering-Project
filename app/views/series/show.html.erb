@@ -10,8 +10,8 @@
     <div class="col-md-4">
         <div style="text-align:center">
             <div class="text-white bg-dark m-2 shadow-lg border rounded">
-                <h1><u>
-                    <%= series.title %>
+                <h1 ><u>
+                    <%= series.title.capitalize %>
                 </u></h1>
                 <% if series.cover.attached? %>
                 <image src="<%=(url_for(series.cover))%>" class="m-3 img-thumbnail"style="max-width:60%;height:auto">
@@ -52,7 +52,7 @@
                 <tbody>
                     <% comics.each do |c| %>
                         <tr>
-                            <th scope="row"><%= link_to c.title, comic_path(id: c.id) %></th>
+                            <th scope="row"><%= link_to c.title.capitalize, comic_path(id: c.id) %></th>
                             <td><%=c.issue_number%></td>
                         </tr>
                     <% end %>

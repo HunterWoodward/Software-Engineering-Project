@@ -23,6 +23,7 @@ class Comic < ApplicationRecord
     validates :title, uniqueness: true
     validate :has_cover_image
     has_one_attached :cover
+    before_save :downcase_fields
 
     def has_cover_image
         if cover.attached? && !cover.content_type.in?(%w(image/jpeg image/png))
@@ -34,5 +35,10 @@ class Comic < ApplicationRecord
 
     def count_pages
         pages.count
+    end
+
+    def downcase_fields
+        title.downcase!
+        comic_type.downcase!
     end
 end
