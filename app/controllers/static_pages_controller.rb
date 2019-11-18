@@ -1,4 +1,7 @@
 class StaticPagesController < ApplicationController
+
+    before_action :authenticate_user!
+
     def index
         comics = Comic.all
         respond_to do |format|

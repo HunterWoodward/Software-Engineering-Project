@@ -1,4 +1,7 @@
 class SeriesController < ApplicationController
+
+  before_action :authenticate_user!
+
   def show
       series = Series.includes(:comics).find(params[:id])
       respond_to do |format|
