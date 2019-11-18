@@ -10,11 +10,11 @@
     <div class="col-md-4">
         <div style="text-align:center">
             <div class="text-white bg-dark m-2 shadow-lg border rounded">
-                <h1><u>
-                    <%= comic.title.capitalize %>
+                <h1 ><u>
+                    <%= series.title.capitalize %>
                 </u></h1>
-                <% if comic.cover.attached? %>
-                <image src="<%=(url_for(comic.cover))%>" class="m-3 img-thumbnail"style="max-width:60%;height:auto">
+                <% if series.cover.attached? %>
+                <image src="<%=(url_for(series.cover))%>" class="m-3 img-thumbnail"style="max-width:60%;height:auto">
                 <% end %>
                 </div>
                 <h2 class = "text-white bg-dark m-2 p-1 shadow-lg border rounded">Comic Info</h2>
@@ -24,7 +24,7 @@
                 <li class="list-inline-item ">Likes: </li>
                 </ul>
                 <div>
-                    <p class="m-1"><h1>Summary:</h1><h3><%= comic.description %></h3></p>
+                    <p class="m-1"><h1>Summary:</h1><h3><%= series.description %></h3></p>
                 </div>
             </div>
         </div>
@@ -40,11 +40,26 @@
 
 
     <div class="col-md-4">
+        <div class="text-white bg-dark m-2 p-2 shadow-lg border rounded">
+        <h2 class="text-center">Issues</h2>
+            <table class="table table-bordered table-striped bg-light ">
+                <thead>
+                    <tr>
+                        <th scope="col">Title of Comic</th>
+                        <th scope="col">Issue Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% comics.each do |c| %>
+                        <tr>
+                            <th scope="row"><%= link_to c.title.capitalize, comic_path(id: c.id) %></th>
+                            <td><%=c.issue_number%></td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
         <div style="text-align:center">
-            <% if (comic.comic_type == "series") %>
-              <%= link_to 'Series Page', series_path(id: comic.series_id),class:"w-75 m-2 btn btn-dark btn-lg border"%>
-            <% end %>
-            <%= link_to 'Read', page_path(page: 1),class:"w-75 m-2 btn btn-dark btn-lg border"%>
             <h2 class="text-white bg-dark m-2 p-2 shadow-lg border rounded">Disscusion</h2>
             <div class="text-white bg-dark m-2 shadow-lg border rounded"style="padding-bottom:100%;margin-bottom:100%">
 

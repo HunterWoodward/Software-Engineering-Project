@@ -26,4 +26,5 @@ class Page < ApplicationRecord
             errors.add(:image, 'Is Required')
         end
     end
+
 end
