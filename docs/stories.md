@@ -66,7 +66,7 @@ Project: 3 Musketeers
 | Description | As a general user, I want to register for the site, so that I can be a part of the site’s community. |
 | Estimate    | 1 day (6-8 hours) |
 | Priority    | 10 |
-| Status      | Not Started |
+| Status      | Completed |
 
 | ID          | US15 |
 | ----------- | ----- |
@@ -83,7 +83,7 @@ Project: 3 Musketeers
 | Description | As a user I want to be able to search for a comic issue or series by its title or creator as well as highest number of likes or highest median score so that I can select the perfect comic. |
 | Estimate    | 1 day |
 | Priority    | 20 |
-| Status      | Not started |
+| Status      | Completed |
 
 | ID          | US17 |
 | ----------- | ----- |
@@ -121,7 +121,7 @@ Project: 3 Musketeers
 | Description | As a creator, I want to create a comic book either as part of a series or as a oneshot, so that I can provide my fans entertainment. |
 | Estimate    | 1 day (6-8 hours of work) |
 | Priority    | 30 |
-| Status      | Not Started |
+| Status      | In-progress |
 
 |ID           | US14
 |-------------|---------------|
@@ -129,7 +129,7 @@ Project: 3 Musketeers
 | Description | As a creator, I want to create a comic book series by adding, removing, ordering pages, specifying a front cover, and giving a Issue Number so that I can provide my fans entertainment. |
 | Estimate    | 1 day (6-8 hours of work) |
 | Priority    | 30 |
-| Status      | Not Started |
+| Status      | In-progress |
 
 
 ## Admin Actions
@@ -140,4 +140,4 @@ Project: 3 Musketeers
 | Description | As an admin, I want to administratively register creators, critics, and other admins, so that they have separate privileges and access. |
 | Estimate    | 2 days (around 16 hours) |
 | Priority    | 60 |
-| Status      | Not Started |
+| Status      | In-progress |
