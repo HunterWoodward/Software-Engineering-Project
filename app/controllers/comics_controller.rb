@@ -5,4 +5,17 @@ class ComicsController < ApplicationController
       format.html {render :show, locals: {comic: comic}}
     end
   end
+
+  def new
+    comic = Comic.new
+    respond_to do |format|
+      format.html {render :new, locals: {comic: comic}}
+    end
+  end
+
+  def create
+  end
+
+
+  
 end
