@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <head>
     <title>Project</title>
     <%= csrf_meta_tags %>
@@ -8,8 +9,20 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <nav class="mb-3 navbar navbar-dark bg-dark border-bottom">
+  <ul class="nav nav-bar">
+  <li><%= link_to 'Home Page', welcome_path,class:"text-light mr-3" %></li>
+  <li><%= link_to 'Browse Page', browse_path,class:"text-light mr-3" %></li>
+  </ul>
+</nav>
 
   <body>
+<% if notice %>
+  <p class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="alert alert-danger"><%= alert %></p>
+<% end %>
     <%= yield %>
   </body>
 </html>

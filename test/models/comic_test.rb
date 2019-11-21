@@ -9,6 +9,11 @@
 #  comic_type   :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  series_id    :integer
+#
+# Indexes
+#
+#  index_comics_on_series_id  (series_id)
 #
 
 require 'test_helper'

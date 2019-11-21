@@ -1,7 +1,10 @@
 class PagesController < ApplicationController
+
+    before_action :authenticate_user!
+
     def show
         comic = Comic.includes(:pages).find(params[:id])
-        page = comic.pages.find(params[:page])
+        page = comic.pages.find_by_page_number(params[:page])
             respond_to do |format|
         format.html {render :show, locals: {comic: comic, page: page}}
         end 

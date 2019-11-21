@@ -18,3 +18,23 @@ image:{io: File.open(Rails.root.join('app','assets','images','SuperMouse','page2
 
 p3 = Page.create!(comic_id:1,page_number:3,
 image:{io: File.open(Rails.root.join('app','assets','images','SuperMouse','page3.jpg')), filename:'page3.jpg'})
+
+
+
+Series.create!(title: "Sniffy The Pup", description: "Sniff the Pup is a comic series about, guess who. Sniffy the Pup who is whacky dog that goes on many adventures and meets alot people join Sniffy and the crew as they explore Sniffy's world",
+cover: {io: File.open(Rails.root.join('app','assets','images','Sniffy The Pup', "Sniffy The Pup.jpg")), filename:'Sniffy The Pup.jpg'})
+
+
+Comic.create!(title: "Sniffy The Pup #6", description: "Sniff the Pup Issue #6", issue_number: 6, comic_type: 'series', series_id: 1,
+cover: {io: File.open(Rails.root.join('app','assets','images','Sniffy The Pup', "Sniffy The Pup #6",'0.jpg' )), filename:'0.jpg'})
+
+Page.create!(comic_id:2,page_number:1,
+image:{io: File.open(Rails.root.join('app','assets','images','Sniffy The Pup',"Sniffy The Pup #6",'0.jpg')), filename:'0.jpg'})
+Page.create!(comic_id:2,page_number:2,
+image:{io: File.open(Rails.root.join('app','assets','images','Sniffy The Pup',"Sniffy The Pup #6",'1.jpg')), filename:'1.jpg'})
+Page.create!(comic_id:2,page_number:3,
+image:{io: File.open(Rails.root.join('app','assets','images','Sniffy The Pup',"Sniffy The Pup #6",'2.jpg')), filename:'2.jpg'})
+Page.create!(comic_id:2,page_number:4,
+image:{io: File.open(Rails.root.join('app','assets','images','Sniffy The Pup',"Sniffy The Pup #6",'3.jpg')), filename:'3.jpg'})
+Page.create!(comic_id:2,page_number:5,
+image:{io: File.open(Rails.root.join('app','assets','images','Sniffy The Pup',"Sniffy The Pup #6",'4.jpg')), filename:'4.jpg'})

@@ -1,0 +1,25 @@
+<head>
+<link rel='stylesheet' href='welcome.scss'>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+</style>
+</head>
+
+<div class ="row">
+  <div class="col-lg-4"></div>
+  <div class= "col-lg-3 bg-dark shadow-lg border m-5 rounded text-light text-center ">
+<h1>Welcome !</h1>
+
+
+<p class="m-2"><%= @email %></p>
+<p><%=@first_name%> <%=@last_name%></p>
+<%if current_user.avatar.attached?%>
+  <%= image_tag url_for((current_user.avatar)), height: 300%>
+  <%else%>
+  <%=image_tag "placeholder.jpg",height: 300%>
+<% end %>
+<p><%=@bio%></p>
+<p><%= link_to 'Log out', destroy_user_session_path, method: :delete, class:"btn btn-light" %></p> 
+<p><%= link_to 'Edit profile', edit_user_registration_path, class:'btn btn-light' %></p>
+</div>
+</div>
