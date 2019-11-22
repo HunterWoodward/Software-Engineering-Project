@@ -10,15 +10,22 @@ class ComicsController < ApplicationController
   end
 
   def new
+    series = Series.all
     comic = Comic.new
     respond_to do |format|
-      format.html {render :new, locals: {comic: comic}}
+      format.html {render :new, locals: {comic: comic, series:series}}
     end
   end
 
   def create
-    comic = Comic.new(params.require(:comic).permit(:title, :description,:cover,:comic_type,pages: []))
-    comic.comic_type = "oneshot"
+    series = Series.all
+    if !params[:comic][:series_id].nil?
+      comic = Comic.new(params.require(:comic).permit(:title, :description, :series_id,:issue_number,:cover,:comic_type,pages: []))
+      comic.comic_type = "series"
+    else
+      comic = Comic.new(params.require(:comic).permit(:title, :description,:cover,:comic_type,pages: []))
+      comic.comic_type = "oneshot"
+    end
     respond_to do |format|
       format.html{
         if comic.save
@@ -26,7 +33,7 @@ class ComicsController < ApplicationController
           redirect_to browse_path
         else
           flash.now[:alert] = comic.errors.full_messages.inspect
-          render :new, locals: {comic: comic}
+          render :new, locals: {comic: comic,seris:series}
         end
       }
     end
