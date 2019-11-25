@@ -1,0 +1,45 @@
+<head>
+<link rel='stylesheet' href='comics.scss'>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+</style>
+</head>
+
+<div class ="row">
+    <div class="col-lg-3"></div>
+    <div class= "col-lg-5 bg-dark shadow-lg border m-5 rounded text-light text-center ">
+    <h1>Fill out form to edit your comic</h1>
+
+    <% if flash.key? :status_msg %>
+    <p><%= flash[:status_msg] %></p>
+    <% end %>
+ <%= form_with model: comic, url: comic_path, method: :patch, local: true, scope: :comic do |f| %>
+    <div class="text-center">
+    <div class="field m-2 text-center">
+            <%= f.label :title %><br>
+            <%= f.text_field :title,size:"40x5"%>
+        </div>
+
+        <br>
+
+        <div class="field m-2">
+            <%= f.label :cover %>
+            <%= f.file_field :cover, class:"m-2 btn btn-light"%>
+        </div>
+
+        <br>
+
+        <div class="field m-2">
+            <%= f.label :description %><br>
+            <%= f.text_area :description,size: "50x5" %>
+        </div>
+
+        <br>
+
+        <div class="actions">
+        <%= f.submit "Update Comic",class:"m-2 btn btn-light"%>
+        </div>
+    </div>
+ <% end %>
+ </div>
+</div>

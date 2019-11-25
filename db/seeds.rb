@@ -10,7 +10,7 @@
 c1 = Comic.create!(title: "Supermouse", description: "A comic about Supermouse and his cheesey adventures", comic_type: "oneshot",
  cover: {io: File.open(Rails.root.join('app','assets','images','Supermouse.jpg')), filename:'Supermouse.jpg'})
 
-p1 = Page.create!(comic_id:1,page_number:1,
+c1.pages.create!(page_number:1,
 image:{io: File.open(Rails.root.join('app','assets','images','SuperMouse','page1.jpg')), filename:'page1.jpg'})
 
 p2 = Page.create!(comic_id:1,page_number:2,
