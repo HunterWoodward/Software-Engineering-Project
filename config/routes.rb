@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   get 'welcome/index', to: 'welcome#index', as:'welcome'
   get 'browse', to: 'static_pages#index', as:'browse' #Index browsing page
   post 'browse', to: 'static_pages#filter', as: 'filter' #Filter browsing page
+  
+  get 'series/new',to: 'series#new', as:'new_series'#New Series Page
+  post 'series/new', to: 'series#create', as:'create_series'#Create Sereis
   get 'series/:id', to: 'series#show', as: 'series' #show
 
   get 'comics/new', to: 'comics#new', as: 'new_comic' #New Comic Page
