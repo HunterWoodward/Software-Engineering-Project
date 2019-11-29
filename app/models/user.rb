@@ -33,7 +33,12 @@ class User < ApplicationRecord
   #   :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_one_attached :avatar     
+  has_one_attached :avatar
+  has_many :posts,
+    class_name: 'Post',
+    foreign_key: 'user_id',
+    inverse_of: :creator,
+    dependent: :destroy     
   before_create :set_default_role
 
   def set_default_role

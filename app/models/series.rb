@@ -11,11 +11,14 @@
 
 class Series < ApplicationRecord
     has_many :comics, dependent: :destroy
+    has_one :discussion, dependent: :destroy
     validates :title, :description, presence:true
     validates :title, uniqueness: true
     validate :has_cover_image
     has_one_attached :cover
     after_create :downcase_fields
+    after_save :create_discussions
+
 
     def has_cover_image
         if cover.attached? && !cover.content_type.in?(%w(image/jpeg image/png))
@@ -29,6 +32,9 @@ class Series < ApplicationRecord
         title.downcase!
     end
     
+    def create_discussions
+        Discussion.create!(series_id: self.id)
+    end
 end
 
 

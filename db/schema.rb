@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_14_203504) do
+ActiveRecord::Schema.define(version: 2019_11_29_202126) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,12 +47,31 @@ ActiveRecord::Schema.define(version: 2019_11_14_203504) do
     t.index ["series_id"], name: "index_comics_on_series_id"
   end
 
+  create_table "discussions", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "comic_id"
+    t.bigint "series_id"
+    t.index ["comic_id"], name: "index_discussions_on_comic_id"
+    t.index ["series_id"], name: "index_discussions_on_series_id"
+  end
+
   create_table "pages", force: :cascade do |t|
     t.integer "page_number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "comic_id"
     t.index ["comic_id"], name: "index_pages_on_comic_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.text "body"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "discussion_id"
+    t.bigint "user_id"
+    t.index ["discussion_id"], name: "index_posts_on_discussion_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "series", force: :cascade do |t|
@@ -96,5 +115,8 @@ ActiveRecord::Schema.define(version: 2019_11_14_203504) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comics", "series"
+  add_foreign_key "discussions", "comics"
+  add_foreign_key "discussions", "series"
   add_foreign_key "pages", "comics"
+  add_foreign_key "posts", "discussions"
 end

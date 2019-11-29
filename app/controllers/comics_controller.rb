@@ -3,9 +3,9 @@ class ComicsController < ApplicationController
   before_action :authenticate_user!
 
   def show
-    comic = Comic.find(params[:id])
+    comic = Comic.includes(discussion:[posts:[:creator]]).find(params[:id])
     respond_to do |format|
-      format.html {render :show, locals: {comic: comic}}
+      format.html {render :show, locals: {comic: comic, discussion: comic.discussion, posts:comic.discussion.posts}}
     end
   end
 
@@ -19,7 +19,7 @@ class ComicsController < ApplicationController
 
   def create
     series = Series.all
-    if !params[:comic][:series_id].nil?
+    if params[:is_series] == true
       comic = Comic.new(params.require(:comic).permit(:title, :description, :series_id,:issue_number,:cover,:comic_type,pages: []))
       comic.comic_type = "series"
     else

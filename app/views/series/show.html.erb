@@ -62,7 +62,23 @@
         <div style="text-align:center">
             <h2 class="text-white bg-dark m-2 p-2 shadow-lg border rounded">Disscusion</h2>
             <div class="text-white bg-dark m-2 shadow-lg border rounded"style="padding-bottom:100%;margin-bottom:100%">
+                <% series.discussion.posts.each do |post|%>
+                    <div class= "border rounded m-3 bg-light text-dark">
+                        <p>"<%= post.body %>"<br>-<%= post.creator.first_name%> <%= post.creator.last_name%></p>
+                    </div>
+                <% end %>
+                <%= form_with model: posts, url: create_series_post_path(discussion), method: :post, local: true, scope: :post do |f| %>
+                    <div class="">
+                        <div class="form-group m-2">
+                            <%= f.label  "Create Post"%>
+                            <%= f.text_area :body, size: "2x2",class: "form-control"%>
+                        </div>
 
+                        <div class="actions">
+                            <%= f.submit "Publish Post",class:"m-2 btn btn-light"%>
+                        </div>
+                    </div>
+                <% end %>
             </div>
         </div>
     </div>

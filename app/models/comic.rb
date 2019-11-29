@@ -19,11 +19,13 @@
 class Comic < ApplicationRecord
     belongs_to :series, optional: true
     has_many :pages, dependent: :destroy
+    has_one :discussion, dependent: :destroy
     validates :title, :description, :comic_type, presence:true
     validates :title, uniqueness: true
     validate :has_cover_image
     has_one_attached :cover
     after_create :downcase_fields
+    after_save :create_discussions
 
     def has_cover_image
         if cover.attached? && !cover.content_type.in?(%w(image/jpeg image/png))
@@ -46,5 +48,9 @@ class Comic < ApplicationRecord
         (0...images.count).each do |i|
             self.pages.build(page_number:i+1, image:images[i])
         end
+    end
+
+    def create_discussions
+        Discussion.create!(comic_id: self.id)
     end
 end

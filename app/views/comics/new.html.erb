@@ -8,60 +8,67 @@
 <div class ="row">
     <div class="col-lg-3"></div>
     <div class= "col-lg-5 bg-dark shadow-lg border m-5 rounded text-light ">
-    <h1>Fill out form to publish your comic</h1>
+    <h1 class="text-center">Fill out form to publish your comic</h1>
 
     <% if flash.key? :status_msg %>
     <p><%= flash[:status_msg] %></p>
     <% end %>
 
     <%= form_with model: comic, url: create_comic_path, method: :post, local: true, scope: :comic do |f| %>
+        <div class="">
+            <div class=" form-group  m-2  text-center">
+                <%= f.label :title %><br>
+                <%= f.text_field :title,size:"40x5", class:"form-control"%>
+            </div>
 
-        <div class="field m-2 center-align">
-            <%= f.label :title %><br>
-            <%= f.text_field :title,size:"40x5"%>
+            <br>
+
+            <div class="form-group m-2 text-center">
+                <%= f.label :cover%>
+                <%= f.file_field :cover, class:"m-2 btn btn-light d-block mx-auto"%>
+            </div>
+
+            <br>
+
+            <div class="form-group m-2 text-center">
+                <%= f.label :description %><br>
+                <%= f.text_area :description,size: "50x5" , class:"form-control"%>
+            </div>
+
+            <br>
+
+            <div class="text-center">
+                <%= f.label "Check if is part of a series"%>
+                <%= f.check_box :is_series %>
+            </div>
+
+            <br>
+
+            <div class="form-group m-2 text-center">
+                <%=f.label :series%>
+                <%= f.collection_select :series_id, Series.all, :id, :title, include_blank: true ,class:"d-block mx-auto"%>
+            </div>
+
+            <br>
+
+            <div class="form-group m-2 text-center">
+                <%= f.label :issue_number %>
+                <%= f.text_field :issue_number, class:"m-2 "%>
+            </div>
+
+            <br>
+
+            <div class="form-group m-2 text-center">
+                <%= f.label :pages %>
+                <%= f.file_field :pages, multiple: true, class:"m-2 btn btn-light d-block mx-auto"%>
+            </div>
+
+            <br>
+
+            <div class="actions text-center">
+            <%= f.submit "Publish Comic",class:"m-2 btn btn-light"%>
+            </div>
         </div>
-
-        <br>
-
-        <div class="field m-2 center-block">
-            <%= f.label :cover %>
-            <%= f.file_field :cover, class:"m-2 btn btn-light"%>
-        </div>
-
-        <br>
-
-        <div class="field m-2">
-            <%= f.label :description %><br>
-            <%= f.text_area :description,size: "50x5" %>
-        </div>
-
-        <br>
-
-        <div class="field m-2">
-            <%=f.label :series%>
-            <%= f.collection_select :series_id, Series.all, :id, :title, include_blank: true %>
-        </div>
-
-        <br>
-
-        <div class="field m-2">
-            <%= f.label :issue_number %>
-            <%= f.text_field :issue_number, class:"m-2 btn btn-light"%>
-        </div>
-
-        <br>
-
-        <div class="field m-2">
-            <%= f.label :pages %>
-            <%= f.file_field :pages, multiple: true, class:"m-2 btn btn-light"%>
-        </div>
-
-        <br>
-
-        <div class="actions">
-        <%= f.submit "Publish Comic",class:"m-2 btn btn-light"%>
-        </div>
-
     <% end %>
     </div>
 </div>

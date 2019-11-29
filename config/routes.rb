@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'series/new',to: 'series#new', as:'new_series'#New Series Page
   post 'series/new', to: 'series#create', as:'create_series'#Create Sereis
   get 'series/:id', to: 'series#show', as: 'series' #show
+  post 'series/:id', to: 'discussion_posts#create_series_post', as: 'create_series_post' #Create Post
 
   get 'comics/new', to: 'comics#new', as: 'new_comic' #New Comic Page
   post 'comics/new', to: 'comics#create', as: 'create_comic' #Create Comic
@@ -18,6 +19,8 @@ Rails.application.routes.draw do
   patch 'comics/:id', to: 'comics#update' #update
   put 'comics/:id', to: 'comics#update' #replace
   get 'comics/:id', to: 'comics#show', as: 'comic' #show
+
+  post 'comics/:id', to: 'discussion_posts#create_comic_post', as: 'create_comic_post' #Create Post
 
   get 'comics/:id/pages/:page', to: 'pages#show', as: 'page' #show
 

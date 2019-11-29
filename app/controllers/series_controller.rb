@@ -3,9 +3,9 @@ class SeriesController < ApplicationController
   before_action :authenticate_user!
 
   def show
-      series = Series.includes(:comics).find(params[:id])
+      series = Series.includes(:comics,discussion:[:posts]).find(params[:id])
       respond_to do |format|
-        format.html {render :show, locals: {series: series,comics: series.comics}}
+        format.html {render :show, locals: {series: series,comics: series.comics,discussion: series.discussion,posts:series.discussion.posts}}
       end
     end
 
