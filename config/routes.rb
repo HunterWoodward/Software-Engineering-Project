@@ -19,8 +19,9 @@ Rails.application.routes.draw do
   patch 'comics/:id', to: 'comics#update' #update
   put 'comics/:id', to: 'comics#update' #replace
   get 'comics/:id', to: 'comics#show', as: 'comic' #show
-
   post 'comics/:id', to: 'discussion_posts#create_comic_post', as: 'create_comic_post' #Create Post
+
+  get 'reviews/:id', to: 'reviews#show', as: 'review' #Show Review
 
   get 'comics/:id/pages/:page', to: 'pages#show', as: 'page' #show
 

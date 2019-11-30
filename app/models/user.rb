@@ -38,6 +38,11 @@ class User < ApplicationRecord
     class_name: 'Post',
     foreign_key: 'user_id',
     inverse_of: :creator,
+    dependent: :destroy
+  has_many :reviews,
+    class_name: 'Review',
+    foreign_key: 'user_id',
+    inverse_of: :critic,
     dependent: :destroy     
   before_create :set_default_role
 

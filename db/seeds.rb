@@ -38,3 +38,8 @@ Page.create!(comic_id:2,page_number:4,
 image:{io: File.open(Rails.root.join('app','assets','images','Sniffy The Pup',"Sniffy The Pup #6",'3.jpg')), filename:'3.jpg'})
 Page.create!(comic_id:2,page_number:5,
 image:{io: File.open(Rails.root.join('app','assets','images','Sniffy The Pup',"Sniffy The Pup #6",'4.jpg')), filename:'4.jpg'})
+
+
+u1 = User.create!(email:'scott@mail.com', password:'password',first_name:'Scott',last_name:'Johnson')
+
+Review.create!(critic: u1, comic_id: 1, title:"A Review of Supermouse",body:"Supermouse just seems to be an old ripoff of Mightymouse, not very enjoyable", rating:2)

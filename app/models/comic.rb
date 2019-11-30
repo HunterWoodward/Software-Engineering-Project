@@ -19,6 +19,7 @@
 class Comic < ApplicationRecord
     belongs_to :series, optional: true
     has_many :pages, dependent: :destroy
+    has_many :reviews, dependent: :destroy
     has_one :discussion, dependent: :destroy
     validates :title, :description, :comic_type, presence:true
     validates :title, uniqueness: true
