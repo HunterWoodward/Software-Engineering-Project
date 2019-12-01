@@ -26,13 +26,18 @@ class Review < ApplicationRecord
         class_name: 'User',
         foreign_key: 'user_id',
         inverse_of: :reviews
+    has_one :discussion, dependent: :destroy
     validates :body,:rating,:title, presence:true
     validates :title, uniqueness: true
-    after_create :downcase_fields
+    before_validation :normalize
+    after_save :create_discussions
 
-
-    def downcase_fields
+    def normalize
         title.downcase!
+    end
+
+    def create_discussions
+        Discussion.create!(review_id: self.id)
     end
 
 end

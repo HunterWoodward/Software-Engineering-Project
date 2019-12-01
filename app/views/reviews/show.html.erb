@@ -4,9 +4,50 @@
 <style>
 </style>
 </head>
+<div class="container">
 
-<div class=row>
-    <div class='col-md-5 bg-dark shadow-lg border rounded text-light'>
-    <p>The Review goes here</p>
+    <div class="row justify-content-center m-5">
+        <div class='col-lg-7'>
+            <div class='bg-dark m-3 shadow-lg border rounded text-light text-center'>
+                <h1><%= review.title %></h1>
+                <h3>by: <%= review.critic.first_name%> <%=review.critic.last_name%> </h3>
+            </div>
+            <div class="bg-dark m-3 shadow-lg border rounded text-light text-center">
+                <h2>Rating: <%= review.rating %> Stars</h2>
+                <%if !(review.comic_id).nil?%>
+                    <%comic = Comic.find(review.comic_id)%>
+                    <p>Comic: <%= link_to comic.title, comic_path(comic),class:"text-light"%></p>
+                <% else %>
+                    <%series = Series.find(review.series_id)%>
+                    <p>Sereis: <%= link_to series.title, series_path(series),class:"text-light"%></p>
+                <%end%>
+                <h5><%= review.body %></h5>
+            </div>
+        </div>
+        <div class='col-lg-4 bg-dark m-3 shadow-lg border rounded text-light text-center'>
+            <h1>Discussion</h1>
+
+            <div>
+                <% review.discussion.posts.each do |post|%>
+                    <div class= "border rounded m-3 bg-light text-dark">
+                            <p>"<%= post.body %>"<br>-<%= post.creator.first_name%> <%= post.creator.last_name%></p>
+                    </div>
+                <% end %>
+
+                <%= form_with model: review.discussion.posts, url: create_review_post_path(review.discussion), method: :post, local: true, scope: :post do |f| %>
+                    <div class>
+                        <div class="form-group m-2">
+                            <%= f.label  "Create Post"%>
+                            <%= f.text_area :body, size: "2x2",class: "form-control"%>
+                        </div>
+
+                        <div class="actions">
+                            <%= f.submit "Publish Post",class:"m-2 btn btn-light"%>
+                        </div>
+                    </div>
+                <% end %>
+
+            </div>
+        </div>
     </div>
 </div>

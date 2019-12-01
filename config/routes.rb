@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   post 'comics/:id', to: 'discussion_posts#create_comic_post', as: 'create_comic_post' #Create Post
 
   get 'reviews/:id', to: 'reviews#show', as: 'review' #Show Review
+  post 'reviews/:id', to: 'discussion_posts#create_review_post', as: 'create_review_post' #Create Post
 
   get 'comics/:id/pages/:page', to: 'pages#show', as: 'page' #show
 

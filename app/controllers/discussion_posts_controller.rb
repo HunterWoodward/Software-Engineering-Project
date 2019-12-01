@@ -32,4 +32,21 @@ class DiscussionPostsController < ApplicationController
             }
         end
     end
+
+    def create_review_post
+        discussion = Discussion.find(params[:id])
+        post = discussion.posts.build(params.require(:post).permit(:body))
+        post.user_id = current_user.id
+        respond_to do |format|
+            format.html{
+                if post.save
+                    flash[:notice] = "Post succesfully Published"
+                    redirect_to review_path(id: discussion.review_id)
+                else
+                    flash[:alert] = post.errors.full_messages.inspect
+                    redirect_to review_path(id: discussion.review_id)
+                end
+            }
+        end
+    end
 end

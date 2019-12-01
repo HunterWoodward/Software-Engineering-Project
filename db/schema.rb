@@ -52,7 +52,9 @@ ActiveRecord::Schema.define(version: 2019_11_29_223337) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "comic_id"
     t.bigint "series_id"
+    t.bigint "review_id"
     t.index ["comic_id"], name: "index_discussions_on_comic_id"
+    t.index ["review_id"], name: "index_discussions_on_review_id"
     t.index ["series_id"], name: "index_discussions_on_series_id"
   end
 
@@ -130,6 +132,7 @@ ActiveRecord::Schema.define(version: 2019_11_29_223337) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comics", "series"
   add_foreign_key "discussions", "comics"
+  add_foreign_key "discussions", "reviews"
   add_foreign_key "discussions", "series"
   add_foreign_key "pages", "comics"
   add_foreign_key "posts", "discussions"
