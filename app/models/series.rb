@@ -7,9 +7,18 @@
 #  description :text
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  user_id     :integer
+#
+# Indexes
+#
+#  index_series_on_user_id  (user_id)
 #
 
 class Series < ApplicationRecord
+    belongs_to :author,
+        class_name: 'User',
+        foreign_key: 'user_id',
+        inverse_of: :series
     has_many :comics, dependent: :destroy
     has_many :reveiws, dependent: :destroy
     has_one :discussion, dependent: :destroy

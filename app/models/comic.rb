@@ -10,14 +10,20 @@
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  series_id    :integer
+#  user_id      :integer
 #
 # Indexes
 #
 #  index_comics_on_series_id  (series_id)
+#  index_comics_on_user_id    (user_id)
 #
 
 class Comic < ApplicationRecord
     belongs_to :series, optional: true
+    belongs_to :author,
+        class_name: 'User',
+        foreign_key: 'user_id',
+        inverse_of: :comics
     has_many :pages, dependent: :destroy
     has_many :reviews, dependent: :destroy
     has_one :discussion, dependent: :destroy

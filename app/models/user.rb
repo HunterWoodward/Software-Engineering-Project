@@ -43,7 +43,17 @@ class User < ApplicationRecord
     class_name: 'Review',
     foreign_key: 'user_id',
     inverse_of: :critic,
-    dependent: :destroy     
+    dependent: :destroy
+  has_many :comics,
+    class_name: 'Comic',
+    foreign_key: 'user_id',
+    inverse_of: :author,
+    dependent: :destroy
+    has_many :series,
+    class_name: 'Series',
+    foreign_key: 'user_id',
+    inverse_of: :author,
+    dependent: :destroy 
   before_create :set_default_role
 
   def set_default_role

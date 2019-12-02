@@ -16,6 +16,7 @@
                 <% if comic.cover.attached? %>
                 <image src="<%=(url_for(comic.cover))%>" class="m-3 img-thumbnail"style="max-width:60%;height:auto">
                 <% end %>
+                <h3>Author: <%=comic.author.first_name%> <%=comic.author.last_name%></h3>
                 </div>
                 <h2 class = "text-white bg-dark m-2 p-1 shadow-lg border rounded">Comic Info</h2>
             <div class='text-white bg-dark m-2 shadow-lg border rounded' style="height:auto">
