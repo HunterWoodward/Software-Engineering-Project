@@ -11,7 +11,7 @@
         <div style="text-align:center">
             <div class="text-white bg-dark m-2 shadow-lg border rounded">
                 <h1><u>
-                    <%= comic.title.capitalize %>
+                    <%= comic.title.titleize %>
                 </u></h1>
                 <% if comic.cover.attached? %>
                 <image src="<%=(url_for(comic.cover))%>" class="m-3 img-thumbnail"style="max-width:60%;height:auto">
@@ -36,7 +36,24 @@
             <h2 style="text-align:center">Reviews</h2>
         </div>
             <div class = 'text-white bg-dark m-2 shadow-lg border rounded'style="padding-bottom:100%;margin-bottom:100%">
-            </div>
+            <%if (local_variables.include?(:reviews) and not reviews.nil?)%>
+                <% reviews.each do |r| %>
+                    <div class="border m-2 bg-light text-dark rounded text-center">
+                        <h4 class="list-group-item-heading"><%= link_to r.title.titleize, review_path(id: r.id),class:"text-dark" %></h4>
+                            <ul class="list-inline mr-10">
+                                <li class="list-inline-item">Critic: <%=r.critic.first_name%> <%=r.critic.last_name%></li>
+                                <li class="list-inline-item">Rating Given: <%= r.rating%> </li>
+                                <li class="list-inline-item">Likes: </li>
+                            </ul>
+                    </div>
+                <% end %>
+            <% end %>
+            <% if current_user.role == "Critic"%>
+                <div class = " m-2 text-center">
+                    <%= link_to 'Create Review of this Comic', new_comic_review_path(comic),class:"m-2 btn btn-light"%>
+                </div>
+            <% end %>
+        </div>
     </div>
 
 

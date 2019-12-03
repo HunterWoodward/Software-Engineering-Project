@@ -1,4 +1,7 @@
 class DiscussionPostsController < ApplicationController
+
+    before_action :authenticate_user!
+    
     def create_comic_post
         discussion = Discussion.find(params[:id])
         post = discussion.posts.build(params.require(:post).permit(:body))

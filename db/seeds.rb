@@ -6,8 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-u1 = User.create!(email:'scott@mail.com', password:'password',first_name:'Scott',last_name:'Johnson')
-u2 = User.create!(email:'john@mail.com', password:'password',first_name:'John',last_name:'Doe')
+u1 = User.create!(email:'scott@mail.com', password:'password',first_name:'Scott',last_name:'Johnson',role:"Critic")
+u2 = User.create!(email:'john@mail.com', password:'password',first_name:'John',last_name:'Doe',role:"Creator")
+u3 = User.create!(email:'julie@mail.com',password:'password',first_name:'Julie',last_name:'Smith',role:"Creator")
+
 
 c1 = Comic.create!(author: u2, title: "Supermouse", description: "A comic about Supermouse and his cheesey adventures", comic_type: "oneshot",
  cover: {io: File.open(Rails.root.join('app','assets','images','Supermouse.jpg')), filename:'Supermouse.jpg'})

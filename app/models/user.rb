@@ -54,10 +54,10 @@ class User < ApplicationRecord
     foreign_key: 'user_id',
     inverse_of: :author,
     dependent: :destroy 
-  before_create :set_default_role
+  before_save :set_default_role
 
   def set_default_role
-    self.role = "Fan"
+    self.role ||= 'Fan'
   end
       
 end

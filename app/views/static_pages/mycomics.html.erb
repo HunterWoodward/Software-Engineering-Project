@@ -1,0 +1,61 @@
+<head>
+<link rel='stylesheet' href='comics.scss'>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+</style>
+</head>
+
+<div class="container">
+    <div class="row justify-content-center mt-5">
+
+        <div class='col-6 mx-3 bg-dark shadow-lg border rounded text-light text-center'>
+            <div>
+                <h1>Your Comics</h1>
+            </div>
+        </div>
+
+        <div class='col-5 mx-3 bg-dark shadow-lg border rounded text-light text-center'>
+            <div>
+                <h1>Your Series</h1>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row justify-content-center mt-3">
+
+        <div class='col-6 mx-3 bg-dark shadow-lg border rounded text-light text-center'>
+            <div>
+            <%= link_to 'Create Comic', new_comic_path,class:"btn btn-light text-dark m-2" %>
+                <%if (local_variables.include?(:comics) and not comics.nil?)%>
+                <% comics.each do |c| %>
+                    <div class="border m-2 bg-light text-dark rounded text-center">
+                        <ul class="list-inline mx-5 my-2 ">
+                            <li class="list-inline-item"><h4><%= link_to c.title.titleize, comic_path(id: c.id),class:"text-dark" %></h4></li>
+                            <li class="list-inline-item"><%= link_to 'Edit', edit_comics_path(c),class:"btn btn-dark text-light" %></li>
+                        </ul>
+                    </div>
+                <% end %>
+            <% end %>
+            </div>
+        </div>
+
+        <div class='col-5 mx-3 bg-dark shadow-lg border rounded text-light text-center'>
+            <div>
+            <%= link_to 'Create Series', new_series_path,class:"btn btn-light text-dark m-2" %>
+                <%if (local_variables.include?(:series) and not series.nil?)%>
+                <% series.each do |s| %>
+                    <div class="border m-2 bg-light text-dark rounded text-center">
+                        <ul class="list-inline mx-5 my-2 ">
+                            <li class="list-inline-item"><h4><%= link_to s.title.titleize, series_path(id: s.id),class:"text-dark" %></h4></li>
+                            <li class="list-inline-item"><%= link_to 'Edit', edit_series_path(s),class:"btn btn-dark text-light" %></li>
+                        </ul>
+                    </div>
+                <% end %>
+            <% end %>
+            </div>
+        </div>
+
+    </div>
+    
+</div>

@@ -46,7 +46,7 @@
 
             <div class="form-group m-2 text-center">
                 <%=f.label :series%>
-                <%= f.collection_select :series_id, Series.all, :id, :title, include_blank: true ,class:"d-block mx-auto"%>
+                <%= f.collection_select :series_id, current_user.series, :id, :title, include_blank: true ,class:"d-block mx-auto"%>
             </div>
 
             <br>

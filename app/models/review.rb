@@ -21,7 +21,7 @@
 
 class Review < ApplicationRecord
     belongs_to :comic , optional: true
-    belongs_to :serie, optional: true
+    belongs_to :series, optional: true
     belongs_to :critic,
         class_name: 'User',
         foreign_key: 'user_id',

@@ -41,4 +41,12 @@ class StaticPagesController < ApplicationController
             end
         end
     end
+
+    def show_my_comics
+        comics = current_user.comics
+        series = current_user.series
+        respond_to do |format|
+            format.html {render :mycomics, locals: {comics: comics, series: series}}
+        end
+    end
 end

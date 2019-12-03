@@ -20,7 +20,7 @@ class Series < ApplicationRecord
         foreign_key: 'user_id',
         inverse_of: :series
     has_many :comics, dependent: :destroy
-    has_many :reveiws, dependent: :destroy
+    has_many :reviews, dependent: :destroy
     has_one :discussion, dependent: :destroy
     validates :title, :description, presence:true
     validates :title, uniqueness: true
