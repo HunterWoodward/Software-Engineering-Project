@@ -17,6 +17,10 @@ class StaticPagesController < ApplicationController
             comics.each do |c|
                 reviews = c.reviews
             end
+            series = Series.where('title like?', "%"+params[:title].downcase+"%")
+            series.each do |s|
+                reviews = s.reviews
+            end
         elsif (params.has_key? :author and not params[:author].blank?)
             name = params[:author].split(" ")
             comics = Comic.joins(:author).where('first_name LIKE ? OR last_name LIKE ?', "%#{name[0]}%","%#{name[1]}%")

@@ -59,4 +59,18 @@ class Comic < ApplicationRecord
     def create_discussions
         Discussion.create!(comic_id: self.id)
     end
+
+    def average_review
+        reviews = self.reviews
+        if (reviews.count < 5)
+            "N/A"
+        else
+            average = 0
+            reviews.each do |r|
+                average += r.rating
+            end
+            average = (average/reviews.count)
+            average.to_s+" Stars"
+        end
+    end
 end

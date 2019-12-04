@@ -19,7 +19,7 @@
                     <p>Comic: <%= link_to (comic.title).titleize, comic_path(comic),class:"text-light"%></p>
                 <% else %>
                     <%series = Series.find(review.series_id)%>
-                    <p>Sereis: <%= link_to series.title, series_path(series),class:"text-light"%></p>
+                    <p>Series: <%= link_to (series.title).titleize, series_path(series),class:"text-light"%></p>
                 <%end%>
                 <h5><%= review.body %></h5>
             </div>
