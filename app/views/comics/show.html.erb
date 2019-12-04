@@ -11,11 +11,12 @@
         <div style="text-align:center">
             <div class="text-white bg-dark m-2 shadow-lg border rounded">
                 <h1><u>
-                    <%= comic.title.capitalize %>
+                    <%= comic.title.titleize %>
                 </u></h1>
                 <% if comic.cover.attached? %>
                 <image src="<%=(url_for(comic.cover))%>" class="m-3 img-thumbnail"style="max-width:60%;height:auto">
                 <% end %>
+                <h3>Author: <%=comic.author.first_name%> <%=comic.author.last_name%></h3>
                 </div>
                 <h2 class = "text-white bg-dark m-2 p-1 shadow-lg border rounded">Comic Info</h2>
             <div class='text-white bg-dark m-2 shadow-lg border rounded' style="height:auto">
@@ -35,7 +36,24 @@
             <h2 style="text-align:center">Reviews</h2>
         </div>
             <div class = 'text-white bg-dark m-2 shadow-lg border rounded'style="padding-bottom:100%;margin-bottom:100%">
-            </div>
+            <%if (local_variables.include?(:reviews) and not reviews.nil?)%>
+                <% reviews.each do |r| %>
+                    <div class="border m-2 bg-light text-dark rounded text-center">
+                        <h4 class="list-group-item-heading"><%= link_to r.title.titleize, review_path(id: r.id),class:"text-dark" %></h4>
+                            <ul class="list-inline mr-10">
+                                <li class="list-inline-item">Critic: <%=r.critic.first_name%> <%=r.critic.last_name%></li>
+                                <li class="list-inline-item">Rating Given: <%= r.rating%> </li>
+                                <li class="list-inline-item">Likes: </li>
+                            </ul>
+                    </div>
+                <% end %>
+            <% end %>
+            <% if current_user.role == "Critic"%>
+                <div class = " m-2 text-center">
+                    <%= link_to 'Create Review of this Comic', new_comic_review_path(comic),class:"m-2 btn btn-light"%>
+                </div>
+            <% end %>
+        </div>
     </div>
 
 
@@ -47,7 +65,23 @@
             <%= link_to 'Read', page_path(page: 1),class:"w-75 m-2 btn btn-dark btn-lg border"%>
             <h2 class="text-white bg-dark m-2 p-2 shadow-lg border rounded">Disscusion</h2>
             <div class="text-white bg-dark m-2 shadow-lg border rounded"style="padding-bottom:100%;margin-bottom:100%">
+                <% comic.discussion.posts.each do |post|%>
+                    <div class= "border rounded m-3 bg-light text-dark">
+                            <p>"<%= post.body %>"<br>-<%= post.creator.first_name%> <%= post.creator.last_name%></p>
+                    </div>
+                <% end %>
+                <%= form_with model: posts, url: create_comic_post_path(discussion), method: :post, local: true, scope: :post do |f| %>
+                    <div class="">
+                        <div class="form-group m-2">
+                            <%= f.label  "Create Post"%>
+                            <%= f.text_area :body, size: "2x2",class: "form-control"%>
+                        </div>
 
+                        <div class="actions">
+                            <%= f.submit "Publish Post",class:"m-2 btn btn-light"%>
+                        </div>
+                    </div>
+                <% end %>
             </div>
         </div>
     </div>

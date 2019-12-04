@@ -18,7 +18,7 @@ Project: 3 Musketeers
 | Description | As a general user, I want to be able to discuss about the comic, so that I can enjoy a comic with others. |
 | Estimate    | 2 Days(16 Hours) |
 | Priority    | 30 |
-| Status      | Not Started |
+| Status      | Completed |
 
 | ID          | US6 |
 | ----------- | ----- |
@@ -26,7 +26,7 @@ Project: 3 Musketeers
 | Description | As a general user, I want to read a review for a comic so I can see what critics thought of it. |
 | Estimate    | 2 Days(16 Hours) |
 | Priority    | 20 |
-| Status      | Not Started |
+| Status      | Completed |
 
 | ID          | US7 |
 | ----------- | ----- |
@@ -91,7 +91,7 @@ Project: 3 Musketeers
 | Description | As a user I want to be able to search for a review by the reviewing critic, comic title, or review with the highest number of likes so that I can select the most suitable review. |
 | Estimate    | 1 day |
 | Priority    | 50 |
-| Status      | Not started |
+| Status      | Completed |
 
 
 ## Critic Actions
@@ -102,7 +102,7 @@ Project: 3 Musketeers
 | Description | As a Critic, I want to leave a review on a comic so that I can judge the quality of the comic. |
 | Estimate    | 2 Days(16 Hours) |
 | Priority    | 20 |
-| Status      | Not Started |
+| Status      | Completed |
 
 | ID          | US5 |
 | ----------- | ----- |
@@ -121,7 +121,7 @@ Project: 3 Musketeers
 | Description | As a creator, I want to create a comic book either as part of a series or as a oneshot, so that I can provide my fans entertainment. |
 | Estimate    | 1 day (6-8 hours of work) |
 | Priority    | 30 |
-| Status      | In-progress |
+| Status      | Completed |
 
 |ID           | US14
 |-------------|---------------|
@@ -129,7 +129,7 @@ Project: 3 Musketeers
 | Description | As a creator, I want to create a comic book series by adding, removing, ordering pages, specifying a front cover, and giving a Issue Number so that I can provide my fans entertainment. |
 | Estimate    | 1 day (6-8 hours of work) |
 | Priority    | 30 |
-| Status      | In-progress |
+| Status      | Completed |
 
 
 ## Admin Actions
