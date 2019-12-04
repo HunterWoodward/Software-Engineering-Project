@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_14_203504) do
+ActiveRecord::Schema.define(version: 2019_12_02_200757) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,7 +44,20 @@ ActiveRecord::Schema.define(version: 2019_11_14_203504) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "series_id"
+    t.bigint "user_id"
     t.index ["series_id"], name: "index_comics_on_series_id"
+    t.index ["user_id"], name: "index_comics_on_user_id"
+  end
+
+  create_table "discussions", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "comic_id"
+    t.bigint "series_id"
+    t.bigint "review_id"
+    t.index ["comic_id"], name: "index_discussions_on_comic_id"
+    t.index ["review_id"], name: "index_discussions_on_review_id"
+    t.index ["series_id"], name: "index_discussions_on_series_id"
   end
 
   create_table "pages", force: :cascade do |t|
@@ -55,11 +68,37 @@ ActiveRecord::Schema.define(version: 2019_11_14_203504) do
     t.index ["comic_id"], name: "index_pages_on_comic_id"
   end
 
+  create_table "posts", force: :cascade do |t|
+    t.text "body"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "discussion_id"
+    t.bigint "user_id"
+    t.index ["discussion_id"], name: "index_posts_on_discussion_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string "title"
+    t.text "body"
+    t.integer "rating"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "comic_id"
+    t.bigint "series_id"
+    t.bigint "user_id"
+    t.index ["comic_id"], name: "index_reviews_on_comic_id"
+    t.index ["series_id"], name: "index_reviews_on_series_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
   create_table "series", force: :cascade do |t|
     t.string "title"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_series_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -96,5 +135,14 @@ ActiveRecord::Schema.define(version: 2019_11_14_203504) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comics", "series"
+  add_foreign_key "comics", "users"
+  add_foreign_key "discussions", "comics"
+  add_foreign_key "discussions", "reviews"
+  add_foreign_key "discussions", "series"
   add_foreign_key "pages", "comics"
+  add_foreign_key "posts", "discussions"
+  add_foreign_key "reviews", "comics"
+  add_foreign_key "reviews", "series"
+  add_foreign_key "reviews", "users"
+  add_foreign_key "series", "users"
 end
