@@ -20,8 +20,12 @@
                 </div>
                 <h2 class = "text-white bg-dark m-2 p-1 shadow-lg border rounded">Comic Info</h2>
             <div class='text-white bg-dark m-2 shadow-lg border rounded' style="height:auto">
-            <% if current_user.role == "Critic" %>
-              <%= button_to 'Add to Reccomendations',reccomend_path(id: comic.id), method: :post,class:"m-2 btn btn-light" %>
+            <% if  current_user.role == "Critic"%>
+                <% if !Reccomendation.exists?(user_id: current_user.id, comic_id: comic.id)%>
+                    <%= button_to 'Add to Recommendations',reccomend_path(id: comic.id), method: :post,class:"m-2 btn btn-light" %>
+                <% else %>
+                    <%= button_to 'Remove from Recommendations',unreccomend_path(id: comic.id), method: :delete,class:"m-2 btn btn-light" %>
+                <% end %>
             <% end %>
                 <ul class="list-inline m-2">
                 <li class="list-inline-item "><h3>Rating: <%= comic.average_review %></h3></li>

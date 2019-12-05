@@ -1,0 +1,62 @@
+<head>
+<link rel='stylesheet' href='comics.scss'>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+</style>
+</head>
+
+<div class="container">
+    <div class="row justify-content-center mt-5">
+
+        <div class='col-6 mx-3 bg-dark shadow-lg border rounded text-light text-center'>
+            <div>
+                <h1>Your Reviews</h1>
+            </div>
+        </div>
+
+        <div class='col-5 mx-3 bg-dark shadow-lg border rounded text-light text-center'>
+            <div>
+                <h1>Your Recommendations</h1>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row justify-content-center mt-3">
+
+        <div class='col-6 mx-3 bg-dark shadow-lg border rounded text-light text-center'>
+            <div>
+                <%if (local_variables.include?(:reviews) and not reviews.nil?)%>
+                <% reviews.each do |r| %>
+                    <div class="border m-2 bg-light text-dark rounded text-center">
+                        <ul class="list-inline mx-5 my-2 ">
+                            <li class="list-inline-item"><h4><%= link_to r.title.titleize, review_path(id: r.id),class:"text-dark" %></h4></li>
+                        </ul>
+                    </div>
+                <% end %>
+            <% end %>
+            </div>
+        </div>
+
+        <div class='col-5 mx-3 bg-dark shadow-lg border rounded text-light text-center'>
+            <div>
+                <%if (local_variables.include?(:comics) and not comics.nil?)%>
+                <% comics.each do |c| %>
+                    <div class="border m-2 bg-light text-dark rounded text-center">
+                        <ul class="list-inline mx-5 my-2 ">
+                            <h4 class="list-group-item-heading"><%= link_to c.title.titleize, comic_path(id: c.id),class:"text-dark" %></h4>
+                            <ul class="list-inline mr-10">
+                                <li class="list-inline-item">Author: <%=c.author.first_name%> <%=c.author.last_name%></li>
+                                <li class="list-inline-item">Rating: <%= c.average_review%></li>
+                                <li class="list-inline-item">Likes: </li>
+                             </ul>
+                        </ul>
+                    </div>
+                <% end %>
+            <% end %>
+            </div>
+        </div>
+
+    </div>
+    
+</div>

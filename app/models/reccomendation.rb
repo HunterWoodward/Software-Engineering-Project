@@ -17,5 +17,4 @@
 class Reccomendation < ApplicationRecord
     belongs_to :user   
     belongs_to :comic
-    validates :user_id, uniqueness: true
 end

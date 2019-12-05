@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'browse', to: 'static_pages#index', as:'browse' #Index browsing page
   post 'browse', to: 'static_pages#filter', as: 'filter' #Filter browsing page
   get 'mycomics', to: 'static_pages#show_my_comics', as: 'my_comics' # Show Creators comics
+  get 'myreviews', to: 'static_pages#show_my_reviews', as: 'my_reviews' #Show 
   get 'critic/:id', to: 'static_pages#show_critic', as: 'critic' #Show critic page
   get 'creator/:id', to: 'static_pages#show_creator', as: 'creator' #Show creator page
   
@@ -30,6 +31,7 @@ Rails.application.routes.draw do
   patch 'comics/:id', to: 'comics#update' #update
   put 'comics/:id', to: 'comics#update' #replace
   get 'comics/:id', to: 'comics#show', as: 'comic' #show
+  delete 'comics/:id/reccomend',to: 'static_pages#unreccomend', as: 'unreccomend' #Post to take off user Recc list.
   post 'comics/:id/reccomend', to: 'static_pages#reccomend', as: 'reccomend' #post to call Reccomend method of user
   post 'comics/:id', to: 'discussion_posts#create_comic_post', as: 'create_comic_post' #Create Post
 

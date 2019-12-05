@@ -60,6 +60,17 @@ class StaticPagesController < ApplicationController
         end
     end
 
+    def show_my_reviews
+        critic = User.includes(:reviews,:reccomendations).find(current_user.id)
+        comics = []
+        critic.reccomendations.each do |r|
+            comics.push(Comic.find(r.comic_id))
+        end
+        respond_to do |format|
+            format.html {render :critic , locals:{critic: critic, reviews: critic.reviews, comics: comics}}
+        end
+    end
+
     def show_critic
         critic = User.includes(:reviews,:reccomendations).find(params[:id])
         comics = []
@@ -87,6 +98,18 @@ class StaticPagesController < ApplicationController
             flash[:alert] = recc.errors.full_messages.inspect
         end
         redirect_to comic_path(comic.id)
+    end
+
+
+    def unreccomend
+        recc = Reccomendation.find_by(user_id: current_user.id, comic_id: params[:id])
+        recc.destroy
+        respond_to do |format|
+            format.html{
+                flash[:notice] = "Recommendation removed successfully!"
+                redirect_to comic_path(params[:id])
+            }
+        end
     end
     
 end
