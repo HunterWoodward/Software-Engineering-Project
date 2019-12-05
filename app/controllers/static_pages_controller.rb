@@ -1,6 +1,12 @@
 class StaticPagesController < ApplicationController
 
+    def require_permission
+        if current_user.role != 'Critic'
+          redirect_to welcome_path, flash: {alert: "You don't haver permission to do that!"}
+        end
+      end
     before_action :authenticate_user!
+    before_action :require_permission, only:[:reccomend]
 
     def index
         comics = Comic.all
@@ -53,4 +59,34 @@ class StaticPagesController < ApplicationController
             format.html {render :mycomics, locals: {comics: comics, series: series}}
         end
     end
+
+    def show_critic
+        critic = User.includes(:reviews,:reccomendations).find(params[:id])
+        comics = []
+        critic.reccomendations.each do |r|
+            comics.push(Comic.find(r.comic_id))
+        end
+        respond_to do |format|
+            format.html {render :critic , locals:{critic: critic, reviews: critic.reviews, comics: comics}}
+        end
+    end
+
+    def show_creator
+        creator = User.includes(:comics,:series).find(params[:id])
+        respond_to do |format|
+            format.html {render :creator , locals:{creator: creator, comics: creator.comics, series: creator.series}}
+        end
+    end
+
+    def reccomend
+        comic = Comic.find(params[:id])
+        recc = current_user.reccomendations.build(comic_id: comic.id)
+        if recc.save
+            flash[:notice] = "Reccomendation Created Succesfully!"
+        else
+            flash[:alert] = recc.errors.full_messages.inspect
+        end
+        redirect_to comic_path(comic.id)
+    end
+    
 end

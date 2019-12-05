@@ -33,6 +33,8 @@ class Comic < ApplicationRecord
     has_one_attached :cover
     before_validation :normalize
     after_save :create_discussions
+    has_many :reccomendations   
+    has_many :users, through: :reccomendations
     def has_cover_image
         if cover.attached? && !cover.content_type.in?(%w(image/jpeg image/png))
             errors.add(:cover, 'Is must be a JPEG or PNG file')

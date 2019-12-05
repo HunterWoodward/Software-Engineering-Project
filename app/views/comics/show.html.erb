@@ -16,10 +16,13 @@
                 <% if comic.cover.attached? %>
                 <image src="<%=(url_for(comic.cover))%>" class="m-3 img-thumbnail"style="max-width:60%;height:auto">
                 <% end %>
-                <h3>Author: <%=comic.author.first_name%> <%=comic.author.last_name%></h3>
+                <h3>Author: <%= link_to (comic.author.first_name+" "+comic.author.last_name), creator_path(comic.author),class:"text-light"%></h3>
                 </div>
                 <h2 class = "text-white bg-dark m-2 p-1 shadow-lg border rounded">Comic Info</h2>
             <div class='text-white bg-dark m-2 shadow-lg border rounded' style="height:auto">
+            <% if current_user.role == "Critic" %>
+              <%= button_to 'Add to Reccomendations',reccomend_path(id: comic.id), method: :post,class:"m-2 btn btn-light" %>
+            <% end %>
                 <ul class="list-inline m-2">
                 <li class="list-inline-item "><h3>Rating: <%= comic.average_review %></h3></li>
                 <li class="list-inline-item "><h3>Likes: </h3></li>

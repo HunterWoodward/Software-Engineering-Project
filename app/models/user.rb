@@ -49,11 +49,13 @@ class User < ApplicationRecord
     foreign_key: 'user_id',
     inverse_of: :author,
     dependent: :destroy
-    has_many :series,
+  has_many :series,
     class_name: 'Series',
     foreign_key: 'user_id',
     inverse_of: :author,
-    dependent: :destroy 
+    dependent: :destroy
+  has_many :reccomendations   
+  has_many :comics, through: :reccomendations
   before_save :set_default_role
 
   def set_default_role

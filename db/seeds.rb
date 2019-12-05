@@ -56,4 +56,5 @@ u5.reviews.create!(series_id: 1, title:"Sniffy is Great",body:"Sniffy the Pup is
 u6.reviews.create!(series_id: 1, title:"Adorable ride",body:"An adorable pup going on adorable adventures and just causing trouble where ever he goes whats not to love about this series?", rating:5)
 u7.reviews.create!(series_id: 1, title:"The Greatest Creation",body:"I honestly have no words for how just amazing this series is its just jaw dropping how good it is. Everyone should read this.", rating:5)
 
-
+u1.reccomendations.create!(comic_id: 2)
+u1.reccomendations.create!(comic_id: 3)
