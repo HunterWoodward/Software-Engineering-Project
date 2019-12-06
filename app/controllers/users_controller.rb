@@ -40,7 +40,7 @@ class UsersController < ApplicationController
   
       # Never trust parameters from the scary internet, only allow the white list through.
       def user_params
-        params.require(:user).permit(role: 'Fan', :first_name,:last_name)
+        params.require(:user).permit(:role, :first_name,:last_name)
       end
 
   @user.avatar.attach(io: File.open('app/assets/images/placefolder.png'),

@@ -83,9 +83,10 @@ class StaticPagesController < ApplicationController
     end
 
     def show_creator
-        creator = User.includes(:comics,:series).find(params[:id])
+        creator = User.includes(:series).find(params[:id])
+        comics = Comic.all.where(user_id: params[:id])
         respond_to do |format|
-            format.html {render :creator , locals:{creator: creator, comics: creator.comics, series: creator.series}}
+            format.html {render :creator , locals:{creator: creator, comics: comics, series: creator.series}}
         end
     end
 
