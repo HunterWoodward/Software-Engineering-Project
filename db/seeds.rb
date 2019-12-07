@@ -13,6 +13,7 @@ u4 = User.create!(email:'adam@mail.com', password:'password',first_name:'Adam',l
 u5 = User.create!(email:'christy@mail.com', password:'password',first_name:'Christy',last_name:'Crystal',role:"Critic")
 u6 = User.create!(email:'steve@mail.com', password:'password',first_name:'Steve',last_name:'Moe',role:"Critic")
 u7 = User.create!(email:'olivia@mail.com', password:'password',first_name:'Olivia',last_name:'Lue',role:"Critic")
+u8 = User.create!(email:'paul@mail.com', password:'password',first_name:'Paul',last_name:'Rob',role:"Admin")
 
 
 c1 = Comic.create!(author: u2, title: "Supermouse", description: "A comic about Supermouse and his cheesey adventures", comic_type: "oneshot",

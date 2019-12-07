@@ -53,7 +53,7 @@ class StaticPagesController < ApplicationController
     end
 
     def show_my_comics
-        comics = current_user.comics
+        comics = Comic.all.where(user_id: current_user.id)
         series = current_user.series
         respond_to do |format|
             format.html {render :mycomics, locals: {comics: comics, series: series}}

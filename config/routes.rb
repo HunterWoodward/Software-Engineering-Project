@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users do
     resources :welcomes
+    resources :admin
   end
   root 'welcome#index'
   get 'welcome/index', to: 'welcome#index', as:'welcome'
@@ -11,6 +12,12 @@ Rails.application.routes.draw do
   get 'myreviews', to: 'static_pages#show_my_reviews', as: 'my_reviews' #Show 
   get 'critic/:id', to: 'static_pages#show_critic', as: 'critic' #Show critic page
   get 'creator/:id', to: 'static_pages#show_creator', as: 'creator' #Show creator page
+
+
+  get 'admin/:id/edit',to: 'admin#edit_role', as:'admin_change_role' #Bring up form to change users role
+  patch 'admin/:id/edit',to:'admin#change_role'
+  put 'admin/:id/edit',to:'admin#change_role'
+  get 'admin',to:'admin#show_users',as:'admin' #Show all user to admin
   
   
   get 'series/new',to: 'series#new', as:'new_series'#New Series Page

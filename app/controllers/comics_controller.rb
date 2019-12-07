@@ -25,7 +25,7 @@ class ComicsController < ApplicationController
 
   def create
     series = Series.all
-    if params[:is_series] == true
+    if params[:comic][:is_series] == '1'
       comic = Comic.new(params.require(:comic).permit(:title, :description, :series_id,:issue_number,:cover,:comic_type,pages: []))
       comic.comic_type = "series"
     else

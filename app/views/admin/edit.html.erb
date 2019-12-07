@@ -1,0 +1,28 @@
+<head>
+<link rel='stylesheet' href='welcome.scss'>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+</style>
+</head>
+
+<div class ="row">
+  <div class="col-lg-3"></div>
+  <div class= "col-lg-5 bg-dark shadow-lg border m-5 rounded text-light text-center ">
+
+<%= form_with model: user, url: admin_change_role_path, method: :patch, local: true, scope: :user do |f| %>
+
+    <div class="form-group m-2 text-center">
+        <%=f.label :role %><br>
+        <%= select_tag :role, options_for_select(["Fan","Critic","Creator","Admin"]),promp: 'Choose Role...',class:"bordered rounded"%>
+    </div>
+
+    <br>
+
+    <div class="actions">
+        <%= f.submit "Update",class:"btn btn-light m-2" %>
+    </div>
+
+<% end %>
+
+</div>
+</div>
