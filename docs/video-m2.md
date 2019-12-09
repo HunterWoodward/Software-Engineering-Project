@@ -2,7 +2,7 @@
 
 - Project: 3Musketeers Comics
 - Milestone: M2
-- Demo Video: (URL for demo video; e.g., <https://youtu.be/xxx>)
+- Demo Video: <https://www.youtube.com/watch?v=6f9vQ2kBoNw>
 
 ## Who Did What
 
