@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_02_200757) do
+ActiveRecord::Schema.define(version: 2019_12_04_213849) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +78,15 @@ ActiveRecord::Schema.define(version: 2019_12_02_200757) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
+  create_table "reccomendations", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.bigint "comic_id"
+    t.index ["comic_id"], name: "index_reccomendations_on_comic_id"
+    t.index ["user_id"], name: "index_reccomendations_on_user_id"
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.string "title"
     t.text "body"
@@ -141,6 +150,8 @@ ActiveRecord::Schema.define(version: 2019_12_02_200757) do
   add_foreign_key "discussions", "series"
   add_foreign_key "pages", "comics"
   add_foreign_key "posts", "discussions"
+  add_foreign_key "reccomendations", "comics"
+  add_foreign_key "reccomendations", "users"
   add_foreign_key "reviews", "comics"
   add_foreign_key "reviews", "series"
   add_foreign_key "reviews", "users"

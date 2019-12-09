@@ -26,7 +26,7 @@ class Series < ApplicationRecord
     validates :title, uniqueness: true
     validate :has_cover_image
     has_one_attached :cover
-    after_create :downcase_fields
+    before_validation :normalize
     after_save :create_discussions
 
 
@@ -38,12 +38,27 @@ class Series < ApplicationRecord
         end
     end
 
-    def downcase_fields
+    def normalize
         title.downcase!
     end
+
     
     def create_discussions
         Discussion.create!(series_id: self.id)
+    end
+    
+    def average_review
+        reviews = self.reviews
+        if (reviews.count < 5)
+            "N/A"
+        else
+            average = 0
+            reviews.each do |r|
+                average += r.rating
+            end
+            average = (average/reviews.count)
+            average.to_s+" Stars"
+        end
     end
 end
 

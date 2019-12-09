@@ -42,7 +42,7 @@
 <div class = "column-image">
     <div style = "text-align:center">
         <%= link_to 'Comic Info Page', comic_path(id: comic.id),class:"m-2  w-50 btn btn-dark btn-lg border" %>
-        <p class= "text-white bg-dark m-2 border">Page Number: <%=page.page_number%></p>
+        <p class= "text-white bg-dark m-2 border">Page Number: <%=page.page_number%> of <%= comic.count_pages%></p>
         <% if page.image.attached? %>
             <div>
             <image src="<%=(url_for(page.image))%>" class="image">

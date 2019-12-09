@@ -38,7 +38,7 @@
                 <ul class="list-inline mr-10">
                     <li class="list-inline-item">Author: <%=c.author.first_name%> <%=c.author.last_name%></li>
                     <li class="list-inline-item">Type of Comic: <%=c.comic_type.capitalize%></li>
-                    <li class="list-inline-item">Rating: </li>
+                    <li class="list-inline-item">Rating: <%= c.average_review%></li>
                     <li class="list-inline-item">Likes: </li>
                 </ul>
             </div>
@@ -50,7 +50,7 @@
                 <h4 class="list-group-item-heading"><%= link_to r.title.titleize, review_path(id: r.id),class:"text-dark" %></h4>
                 <ul class="list-inline mr-10">
                     <li class="list-inline-item">Critic: <%=r.critic.first_name%> <%=r.critic.last_name%></li>
-                    <li class="list-inline-item">Rating Given: <%= r.rating%> </li>
+                    <li class="list-inline-item">Rating Given: <%= r.rating%> Stars</li>
                     <li class="list-inline-item">Likes: </li>
                 </ul>
             </div>

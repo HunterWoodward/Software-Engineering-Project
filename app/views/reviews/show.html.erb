@@ -10,7 +10,7 @@
         <div class='col-lg-7'>
             <div class='bg-dark m-3 shadow-lg border rounded text-light text-center'>
                 <h1><%= review.title.titleize %></h1>
-                <h3>by: <%= review.critic.first_name%> <%=review.critic.last_name%> </h3>
+                <h3>by: <%= link_to (review.critic.first_name+" "+review.critic.last_name), critic_path(review.critic),class:"text-light"%></h3>
             </div>
             <div class="bg-dark m-3 shadow-lg border rounded text-light text-center">
                 <h2>Rating: <%= review.rating %> Stars</h2>
@@ -19,7 +19,7 @@
                     <p>Comic: <%= link_to (comic.title).titleize, comic_path(comic),class:"text-light"%></p>
                 <% else %>
                     <%series = Series.find(review.series_id)%>
-                    <p>Sereis: <%= link_to series.title, series_path(series),class:"text-light"%></p>
+                    <p>Series: <%= link_to (series.title).titleize, series_path(series),class:"text-light"%></p>
                 <%end%>
                 <h5><%= review.body %></h5>
             </div>

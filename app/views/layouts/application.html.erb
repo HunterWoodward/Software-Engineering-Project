@@ -28,6 +28,16 @@
           <%= link_to 'My Comics', my_comics_path,class: 'nav-link' %>
         </li>
       <% end %>
+      <%if user_signed_in? and current_user.role == "Critic"%>
+        <li class="nav-item <%= active_class(my_reviews_path)%>%">
+          <%= link_to 'My Reviews&Recs', my_reviews_path,class: 'nav-link' %>
+        </li>
+      <% end %>
+      <%if user_signed_in? and current_user.role == "Admin"%>
+        <li class="nav-item <%= active_class(admin_path)%>%">
+          <%= link_to 'Administration', admin_path,class: 'nav-link' %>
+        </li>
+      <% end %>
     </ul>
     <ul class="navbar-nav">
    <% if user_signed_in? %>

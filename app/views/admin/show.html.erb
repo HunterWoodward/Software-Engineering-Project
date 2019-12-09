@@ -1,0 +1,38 @@
+<head>
+<link rel='stylesheet' href='comics.scss'>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+</style>
+</head>
+
+<div class="container">
+    <div class="row justify-content-center mt-5">
+
+        <div class='col-8 mx-3 bg-dark shadow-lg border rounded text-light text-center'>
+            <div>
+                <h1>Users</h1>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row justify-content-center mt-3">
+
+        <div class='col-8 mx-3 bg-dark shadow-lg border rounded text-light text-center'>
+            <div>
+            <% if (local_variables.include?(:users)and not users.nil?) %>
+                <%users.each do |u|%>
+                   <div class="border m-4 bg-light text-dark rounded ">
+                        <h4 class="list-group-item-heading"><%=u.first_name%> <%=u.last_name%> (Current Role: <%=u.role%>) <%= link_to 'Change Role', admin_change_role_path(u),class:"btn btn-dark" %></h4>
+                    </div>
+                <% end %> 
+            <% end %>
+            </div>
+        </div>
+
+    </div>
+    
+</div>
+
+
+

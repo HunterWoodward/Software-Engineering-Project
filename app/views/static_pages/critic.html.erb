@@ -1,0 +1,80 @@
+<head>
+<link rel='stylesheet' href='comics.scss'>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+</style>
+</head>
+
+<div class="container">
+    <div class="row mt-5">
+        <div class='col mx-2 bg-dark shadow-lg border rounded text-light text-center'>
+            <div>
+                <h1>About Critic</h1>
+            </div>
+        </div>
+
+        <div class='col mx-2 bg-dark shadow-lg border rounded text-light text-center'>
+            <div>
+                <h1>Reviews</h1>
+            </div>
+        </div>
+
+        <div class='col mx-2 bg-dark shadow-lg border rounded text-light text-center'>
+            <div>
+                <h1>Recommendations</h1>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row mt-3">
+
+        <div class='col mx-2 bg-dark shadow-lg border rounded text-light text-center'>
+            <div>
+                <%if critic.avatar.attached?%>
+                    <%= image_tag url_for((critic.avatar)),class:"m-3 img-thumbnail" ,height: 300%>
+                <%else%>
+                    <%=image_tag "placeholder.jpg",class:"m-3 img-thumbnail",height: 300%>
+                <% end %>
+                <h2>
+                    Name: <%=critic.first_name%> <%=critic.last_name%>
+                </h2>
+                <h3>
+                    About me: <%=critic.bio%>    
+                </h3>
+            </div>
+        </div>
+
+        <div class='col mx-2 bg-dark shadow-lg border rounded text-light text-center'>
+            <div>
+                <% if (local_variables.include?(:reviews)and not reviews.nil?)%>
+                    <%reviews.each do |r|%>
+                        <div class="border m-2 bg-light text-dark rounded text-center">
+                            <h4 class="list-group-item-heading"><%= link_to r.title.titleize, review_path(id: r.id),class:"text-dark" %></h4>
+                                <ul class="list-inline mr-10">
+                                    <li class="list-inline-item">Rating Given: <%= r.rating%> </li>
+                                    <li class="list-inline-item">Likes: </li>
+                                </ul>
+                        </div>
+                    <% end %>
+                <% end %>
+            </div>
+        </div>
+
+        <div class='col mx-2 bg-dark shadow-lg border rounded text-light text-center'>
+            <div>
+                <% if (local_variables.include?(:comics)and not comics.nil?)%>
+                    <%comics.each do |c|%>
+                        <div class="border m-2 bg-light text-dark rounded text-center">
+                            <h4 class="list-group-item-heading"><%= link_to c.title.titleize, comic_path(id: c.id),class:"text-dark" %></h4>
+                                <ul class="list-inline mr-10">
+                                    <li class="list-inline-item">Rating <%=c.average_review%> </li>
+                                    <li class="list-inline-item">Likes: </li>
+                                </ul>
+                        </div>
+                    <% end %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>

@@ -16,13 +16,13 @@
                 <% if series.cover.attached? %>
                 <image src="<%=(url_for(series.cover))%>" class="m-3 img-thumbnail"style="max-width:60%;height:auto">
                 <% end %>
-                <h3>Author: <%=series.author.first_name%> <%= series.author.last_name%></h3>
+                <h3>Author: <%= link_to (series.author.first_name+" "+series.author.last_name), creator_path(series.author),class:"text-light"%></h3>
                 </div>
                 <h2 class = "text-white bg-dark m-2 p-1 shadow-lg border rounded">Comic Info</h2>
             <div class='text-white bg-dark m-2 shadow-lg border rounded' style="height:auto">
                 <ul class="list-inline m-2">
-                <li class="list-inline-item ">Rating: </li>
-                <li class="list-inline-item ">Likes: </li>
+                <li class="list-inline-item "><h3>Rating: <%= series.average_review %></h3></li>
+                <li class="list-inline-item "><h3>Likes: </h3></li>
                 </ul>
                 <div>
                     <p class="m-1"><h1>Summary:</h1><h3><%= series.description %></h3></p>

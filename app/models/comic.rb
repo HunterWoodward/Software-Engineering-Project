@@ -33,6 +33,8 @@ class Comic < ApplicationRecord
     has_one_attached :cover
     before_validation :normalize
     after_save :create_discussions
+    has_many :reccomendations   
+    has_many :users, through: :reccomendations
     def has_cover_image
         if cover.attached? && !cover.content_type.in?(%w(image/jpeg image/png))
             errors.add(:cover, 'Is must be a JPEG or PNG file')
@@ -58,5 +60,19 @@ class Comic < ApplicationRecord
 
     def create_discussions
         Discussion.create!(comic_id: self.id)
+    end
+
+    def average_review
+        reviews = self.reviews
+        if (reviews.count < 5)
+            "N/A"
+        else
+            average = 0
+            reviews.each do |r|
+                average += r.rating
+            end
+            average = (average/reviews.count)
+            average.to_s+" Stars"
+        end
     end
 end
