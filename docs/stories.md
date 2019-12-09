@@ -74,7 +74,7 @@ Project: 3 Musketeers
 | Description | As a user I want to see the median star rating for a comic issue, so I can know how others liked it. |
 | Estimate    | 1 days(6-8 hours) |
 | Priority    | 50 |
-| Status      | Not started |
+| Status      | Completed |
 
 
 | ID          | US16 |
@@ -110,7 +110,7 @@ Project: 3 Musketeers
 | Description | As a critic I want to add a comic to a list of recommendations so that my followers know what comics I recommend. |
 | Estimate    | 2 Days(16 Hours) |
 | Priority    | 20 |
-| Status      | Not Started |
+| Status      | Completed |
 
 
 ## Creator Actions
@@ -140,4 +140,4 @@ Project: 3 Musketeers
 | Description | As an admin, I want to administratively register creators, critics, and other admins, so that they have separate privileges and access. |
 | Estimate    | 2 days (around 16 hours) |
 | Priority    | 60 |
-| Status      | In-progress |
+| Status      | Completed |
